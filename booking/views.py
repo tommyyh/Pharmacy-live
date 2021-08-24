@@ -69,8 +69,6 @@ def new_date(request):
 		# Make a list containing only the values
 		available_times = [x for x in time if x not in time_taken]
 
-		print(time_taken)
-
 		return Response({ 'available_times': available_times })
 
 @api_view(['POST'])

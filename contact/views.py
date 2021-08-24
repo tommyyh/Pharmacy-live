@@ -14,9 +14,6 @@ def send_email(request):
   msg = request.data['msg']
   body = f'Name: {name}, Email: {email_address}, Message: {msg}'
 
-  print('fgewfewf')
-  print(body)
-
   email = EmailMessage(
     'Rimmingtons - Contact Us',
     body,
