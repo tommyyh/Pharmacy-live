@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today's Report</title>
+  </head>
+  <body style="font-family: 'Poppins', sans-serif">
+    <h1 style="font-size: 32px">Today's Report</h1>
+    {% for x in users %}
+    <p style="font-size: 14.5px; margin-top: -100px">
+      {{ x.name }} (Email: {{ x.email }}, Phone: {{ x.phone }}, Postal: 
+      {{ x.postal_code }}, NHS: {{ x.nhs_number }}, Birth: {{ x.birth_date }}) - 
+      {{ x.time }}
+    </p>
+    {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static '/images/svg/rimmingtons.ico' %}"
+      type="image/x-icon"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+    <script src="{% static '/js/date.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static '/css/booking/date.css' %}" />
+    <script src="{% static '/js/nav.js' %}" defer></script>
+    <title>Booking</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>{% include 'all/nav.html' %}</header>
+
+      <main class="booking">{% include 'booking/date_form.html' %}</main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<div class="booking__cont">
+  <div class="booking__title">
+    <h1>Book An Appointment</h1>
+  </div>
+
+  <div class="booking__form">
+    <div class="booking__input">
+      <label for="booking__name" id="name_label">Full Name</label>
+      <input type="text" name="name" id="booking__name" value="{{ name }}" />
+    </div>
+
+    <div class="booking__input">
+      <label for="booking__email" id="email_label">Email Address</label>
+      <input type="text" name="email" id="booking__email" value="{{ email }}" />
+    </div>
+
+    <div class="booking__input">
+      <label for="booking__phone" id="phone_label">Phone Number</label>
+      <input type="tel" name="phone" id="booking__phone" value="{{ phone }}" />
+    </div>
+
+    <div class="booking__input">
+      <label for="booking__date" id="date_label">Date Of Birth</label>
+      <input
+        type="text"
+        name="birth"
+        id="booking__date"
+        onfocus="(this.type='date')"
+        onfocusout="focusOutDate(this)"
+        value="{{ birth }}"
+      />
+    </div>
+
+    <div class="booking__input">
+      <label for="booking__postal" id="postal_label">Postal Code</label>
+      <input
+        type="text"
+        name="postal"
+        id="booking__postal"
+        value="{{ postal }}"
+      />
+    </div>
+
+    <div class="booking__input">
+      <label for="booking__nhs" id="nhs_label">NHS Number</label>
+      <input type="number" name="nhs" id="booking__nhs" value="{{ nhs }}" />
+    </div>
+
+    <button class="continue_button">Continue</button>
+  </div>
+</div>

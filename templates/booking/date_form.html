@@ -1,0 +1,28 @@
+<div class="booking__cont">
+  <div class="booking__title">
+    <h1>Book An Appointment</h1>
+  </div>
+
+  <div class="booking__form">
+    <div class="booking__input">
+      <input
+        placeholder="Select a Date"
+        id="booking__date"
+        type="text"
+        onfocus="(this.type='date')"
+        min="{{ current_date }}"
+      />
+    </div>
+
+    <h5 class="date_picker_error">Please fill out this field</h5>
+    <button class="continue_button">Check Available Times</button>
+    <h5 class="date_picker_success">Scroll down and pick a time</h5>
+
+    <div class="date_picker"></div>
+    <button id="book_appointment" disabled>Pick a Date First</button>
+
+    <div class="date_go_back">
+      <a href="{% url 'booking-page' %}">Go Back</a>
+    </div>
+  </div>
+</div>

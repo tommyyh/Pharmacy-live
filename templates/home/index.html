@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static '/images/svg/rimmingtons.ico' %}"
+      type="image/x-icon"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+    <script src="{% static '/js/nav.js' %}" defer></script>
+    <script src="{% static '/js/home.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static '/css/home/index.css' %}" />
+    <title>Pharmacy • Home</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>{% include 'all/nav.html' %}</header>
+
+      <div class="popup">
+        <a href="/booking">Book An Appointment</a>
+        <div class="cross"></div>
+      </div>
+
+      {% if success %}
+      <div class="success_message_cont">
+        <h4 class="success_message">{{ success }}</h4>
+      </div>
+      {% endif %}
+
+      <main class="hero">
+        <h1>
+          <span>There’s Nothing More Important Than</span
+          ><span>Your Health. Book An Appointment And</span>Fight Against The
+          Disease
+        </h1>
+
+        <button>Book Appointment</button>
+      </main>
+
+      <section class="strengths">{% include 'home/wwd.html' %}</section>
+
+      <section class="vaccines">
+        <img src="{% static '/images/vaccine-needle.png' %}" alt="Vaccine" />
+
+        <div>
+          <h2>What Are Vaccines</h2>
+          <p>
+            A vaccine is a biological preparation that provides active acquired
+            immunity to a particular infectious disease and is often made from
+            weakened or killed forms of the microbe.
+          </p>
+        </div>
+      </section>
+
+      <section class="info">
+        <div class="info__cont">
+          <img src="{% static '/images/svg/time.svg' %}" alt="Time icon" />
+          <h4><span>Each appointment should</span> only last 5 minutes.</h4>
+        </div>
+
+        <div class="info__cont">
+          <img src="{% static '/images/svg/health.svg' %}" alt="Time icon" />
+          <h4>
+            <span>We promise you safety</span> health from these vaccines.
+          </h4>
+        </div>
+      </section>
+
+      <section>{% include 'home/map.html' %}</section>
+
+      <footer>{% include 'all/footer.html' %}</footer>
+    </div>
+  </body>
+</html>
