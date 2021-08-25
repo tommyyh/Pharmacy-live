@@ -11,9 +11,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if config('ENV') == 'development':
+    DEBUG = True
 
-ALLOWED_HOSTS = ['rimmingtons.herokuapp.com', 'localhost']
+    ALLOWED_HOSTS = []
+else:
+    DEBUG = False
+
+    ALLOWED_HOSTS = ['rimmingtons.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -128,7 +133,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+if config('ENV') == 'production':
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = config('EMAIL_USER')

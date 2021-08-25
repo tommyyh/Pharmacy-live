@@ -10,13 +10,23 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
   const popup = document.querySelector('.popup');
   const cross = document.querySelector('.cross');
 
-  cross.addEventListener('click', () => {
-    popup.style.top = '-4.3rem';
-  });
+  if (window.innerWidth > 1024) {
+    cross.addEventListener('click', () => {
+      popup.style.right = '-27%';
+    });
 
-  setTimeout(() => {
-    popup.style.top = '0%';
-  }, 750);
+    setTimeout(() => {
+      popup.style.right = '0%';
+    }, 780);
+  } else {
+    cross.addEventListener('click', () => {
+      popup.style.top = '-4.3rem';
+    });
+
+    setTimeout(() => {
+      popup.style.top = '0%';
+    }, 780);
+  }
 })();
 
 (() => {
