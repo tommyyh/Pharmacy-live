@@ -11,12 +11,12 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
   const cross = document.querySelector('.cross');
 
   cross.addEventListener('click', () => {
-    popup.style.right = '-27%';
+    popup.style.top = '-4.3rem';
   });
 
   setTimeout(() => {
-    popup.style.right = '0%';
-  }, 650);
+    popup.style.top = '0%';
+  }, 750);
 })();
 
 (() => {

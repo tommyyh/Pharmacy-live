@@ -173,3 +173,13 @@
     z-index: 2;
   }
 }
+
+@media all and (min-width: 768px) and (max-width: 1024.1px) {
+  .booking__cont {
+    height: 88.5vh;
+  }
+
+  .booking__title {
+    border-bottom: 1.26px solid #b3b3b3;
+  }
+}

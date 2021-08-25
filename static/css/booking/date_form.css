@@ -221,3 +221,9 @@
     display: initial;
   }
 }
+
+@media all and (min-width: 768px) and (max-width: 1024.1px) {
+  .booking__cont {
+    height: 101.5vh;
+  }
+}
