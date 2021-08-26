@@ -1,0 +1,23 @@
+@media all and (min-width: 1025px) {
+  .images {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, 50% 50%);
+    row-gap: 2%;
+    width: 100%;
+    padding: 0 7% 0 7%;
+    margin-top: 12.8rem;
+  }
+
+  .images img {
+    width: 98%;
+    height: 42vh;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 200ms;
+  }
+
+  .images img:hover {
+    opacity: 91%;
+  }
+}

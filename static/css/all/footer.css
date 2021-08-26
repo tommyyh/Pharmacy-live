@@ -81,7 +81,7 @@ footer h3 {
 }
 
 .footer__socials svg:hover > path {
-  fill: #ffb59a;
+  opacity: 85%;
 }
 
 @media all and (min-width: 1050px) {
@@ -166,6 +166,6 @@ footer h3 {
   }
 
   .footer__socials svg:hover > path {
-    fill: #ffb59a;
+    opacity: 85%;
   }
 }

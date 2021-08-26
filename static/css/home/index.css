@@ -2,6 +2,7 @@
 @import url('../all/nav.css');
 @import url('./wwd.css');
 @import url('./map.css');
+@import url('./images.css');
 
 .success_message_cont {
   display: flex;

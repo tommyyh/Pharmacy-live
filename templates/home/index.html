@@ -23,6 +23,7 @@
     ></script>
     <script src="{% static '/js/nav.js' %}" defer></script>
     <script src="{% static '/js/home.js' %}" defer></script>
+    <script src="{% static '/js/images.js' %}" defer></script>
     <link rel="stylesheet" href="{% static '/css/home/index.css' %}" />
     <title>Pharmacy • Home</title>
   </head>
@@ -81,6 +82,8 @@
       </section>
 
       <section>{% include 'home/map.html' %}</section>
+
+      <section class="images">{% include 'home/images.html' %}</section>
 
       <footer>{% include 'all/footer.html' %}</footer>
     </div>
