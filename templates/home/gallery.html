@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static '/images/svg/rimmingtons.ico' %}"
+      type="image/x-icon"
+    />
+    <script src="{% static '/js/nav.js' %}" defer></script>
+    <!-- <script src="{% static '/js/home.js' %}" defer></script> -->
+    <link rel="stylesheet" href="{% static '/css/home/gallery.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/all/resets.css' %}" />
+    <title>Pharmacy • Gallery</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>{% include 'all/nav.html' %}</header>
+
+      <h1 class="gallery_title">OUR GALLERY</h1>
+
+      <div class="gallery">
+        <img src="{% static '/images/3.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/5.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/6.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/7.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/8.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/9.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/10.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/11.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/12.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/13.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/14.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/15.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/16.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/17.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/18.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/19.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/20.JPG' %}" alt="Rimmington's Pharmacy" />
+        <img src="{% static '/images/21.JPG' %}" alt="Rimmington's Pharmacy" />
+      </div>
+
+      <footer>{% include 'all/footer.html' %}</footer>
+    </div>
+  </body>
+</html>

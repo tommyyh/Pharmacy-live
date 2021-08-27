@@ -1,4 +1,4 @@
-@import url('./footer.css');
+@import url("./footer.css");
 
 * {
   margin: 0;
@@ -13,7 +13,7 @@
   --secondary-color2: #ffa585;
   --accent-color: #21a0a0;
   --accent-color2: #046865;
-  --font-family: 'Poppins', sans-serif;
+  --font-family: "Poppins", sans-serif;
 }
 
 body {

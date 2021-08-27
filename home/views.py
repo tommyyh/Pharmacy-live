@@ -11,6 +11,9 @@ def home(request):
 
   return render(request, 'home/index.html', { 'success': success_msg })
 
+def gallery(request):
+  return render(request, 'home/gallery.html')
+
 @api_view(['GET'])
 def remove_message(request):
   request.session['success'] = ''
