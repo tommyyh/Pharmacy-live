@@ -63,7 +63,7 @@ const focusOutDate = (e) => {
     birthLabel.style.color = '#333333';
     birthLabel.style.fontSize = '0.55rem';
 
-    birthLabel.innerHTML = 'Phone Number';
+    birthLabel.innerHTML = 'Date Of Birth';
     birthInput.style.border = 'none';
     birthInput.type = 'date';
   }
@@ -73,7 +73,7 @@ const focusOutDate = (e) => {
     postalLabel.style.color = '#333333';
     postalLabel.style.fontSize = '0.55rem';
 
-    postalLabel.innerHTML = 'Phone Number';
+    postalLabel.innerHTML = 'Postal Code';
     postalInput.style.border = 'none';
   }
 
@@ -82,7 +82,7 @@ const focusOutDate = (e) => {
     nhsLabel.style.color = '#333333';
     nhsLabel.style.fontSize = '0.55rem';
 
-    nhsLabel.innerHTML = 'Phone Number';
+    nhsLabel.innerHTML = 'NHS Number';
     nhsInput.style.border = 'none';
   }
 

@@ -25,10 +25,6 @@
 }
 
 .map_book {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
   width: 15rem;
   height: 4rem;
   background: var(--accent-color2);
@@ -36,6 +32,7 @@
   font-size: 1.05rem;
   font-weight: 400;
   margin-top: 1.3rem;
+  border: none;
 }
 
 @media all and (min-width: 1050px) {

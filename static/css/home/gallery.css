@@ -1,4 +1,4 @@
-@import url("../all/nav.css");
+@import url('../all/nav.css');
 
 .gallery_title {
   font-size: 2rem;
@@ -45,7 +45,7 @@
 
   .gallery img {
     width: 98%;
-    height: 44vh;
+    height: 47vh;
     object-fit: cover;
   }
 
