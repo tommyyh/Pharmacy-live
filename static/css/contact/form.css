@@ -197,7 +197,7 @@
   }
 
   .contact button:hover {
-    background: #035754;
+    background: var(--hover);
   }
 
   #success {

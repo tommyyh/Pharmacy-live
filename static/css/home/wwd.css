@@ -12,7 +12,7 @@
 }
 
 .strengths h2::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 2rem;
   height: 2px;
@@ -39,7 +39,7 @@
   align-items: center;
   width: 5.5rem;
   height: 5.5rem;
-  background: var(--accent-color);
+  background: #0c8fc4;
   border-radius: 50%;
 }
 
@@ -82,7 +82,7 @@
   }
 
   .strengths h2::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 3rem;
     height: 2px;
@@ -109,7 +109,7 @@
     align-items: center;
     width: 6.25rem;
     height: 6.25rem;
-    background: #22a7a7;
+    background: #0c8fc4;
     border-radius: 50%;
   }
 
@@ -140,7 +140,7 @@
   }
 
   .strengths h2::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 2rem;
     height: 1px;

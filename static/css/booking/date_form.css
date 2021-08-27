@@ -69,10 +69,6 @@
   margin-bottom: 0.8rem;
 }
 
-.booking__form button:hover {
-  background: #067a77;
-}
-
 #booking__date {
   padding-top: 0;
 }
@@ -80,10 +76,6 @@
 .date_go_back a {
   color: var(--accent-color);
   transition: ease 200ms;
-}
-
-.date_go_back a:hover {
-  color: var(--accent-color2);
 }
 
 .date_picker_error {
@@ -182,7 +174,7 @@
   }
 
   .booking__form button:hover {
-    background: #067a77;
+    background: var(--hover);
   }
 
   #booking__date {

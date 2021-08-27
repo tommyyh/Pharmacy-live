@@ -68,10 +68,6 @@
   margin-top: 0.88rem;
 }
 
-.booking__form button:hover {
-  background: #067a77;
-}
-
 .booking__input label {
   position: absolute;
   top: 40%;
@@ -160,7 +156,7 @@
   }
 
   .booking__form button:hover {
-    background: #067a77;
+    background: var(--hover);
   }
 
   .booking__input label {

@@ -38,10 +38,6 @@
   margin-top: 1.3rem;
 }
 
-.map_book:hover {
-  background: #045a57;
-}
-
 @media all and (min-width: 1050px) {
   .google_maps_p {
     display: flex;
@@ -69,10 +65,6 @@
   }
 
   .map_book {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
     width: 18.1rem;
     height: 4.62rem;
     background: var(--accent-color2);
@@ -80,9 +72,10 @@
     font-size: 1.27rem;
     font-weight: 400;
     margin-top: -2.5rem;
+    border: none;
   }
 
   .map_book:hover {
-    background: #045a57;
+    background: var(--hover);
   }
 }

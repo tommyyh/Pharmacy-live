@@ -54,10 +54,6 @@
   margin-top: 3rem;
 }
 
-.hero button:hover {
-  background: #045a57;
-}
-
 .vaccines {
   display: flex;
   flex-direction: column;
@@ -233,7 +229,7 @@
   }
 
   .hero button:hover {
-    background: #045a57;
+    background: var(--hover);
   }
 
   .vaccines {

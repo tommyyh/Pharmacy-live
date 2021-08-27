@@ -8,11 +8,12 @@
 
 :root {
   --primary-color: #fff;
-  --primary-color2: #f3f3f3;
+  --primary-color2: #f0f0f0;
   --secondary-color: #000;
-  --secondary-color2: #ffa585;
-  --accent-color: #21a0a0;
-  --accent-color2: #046865;
+  --secondary-color2: #d3a150;
+  --accent-color: #021f5a;
+  --accent-color2: #d3a150;
+  --hover: #c59240;
   --font-family: "Poppins", sans-serif;
 }
 
