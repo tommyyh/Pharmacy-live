@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 82vh;
+  height: 88.3vh;
   background: #fff;
   border-radius: 0.3rem;
   margin-top: 18vh;
@@ -56,6 +56,7 @@
   padding: 4.1% 5% 0 5%;
   transition: ease 300ms;
   font-weight: 300;
+  min-width: 100%;
 }
 
 .booking__form button {
@@ -143,6 +144,7 @@
     padding: 4.1% 5% 0 5%;
     transition: ease 300ms;
     font-weight: 300;
+    min-width: initial;
   }
 
   .booking__form button {

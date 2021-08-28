@@ -1,8 +1,8 @@
-@import url("../all/resets.css");
-@import url("../all/nav.css");
-@import url("./wwd.css");
-@import url("./map.css");
-@import url("./images.css");
+@import url('../all/resets.css');
+@import url('../all/nav.css');
+@import url('./wwd.css');
+@import url('./map.css');
+@import url('./images.css');
 
 .success_message_cont {
   display: flex;
@@ -15,6 +15,7 @@
   right: 0;
   top: 14vh;
   transition: ease 200ms;
+  z-index: 21;
 }
 
 .success_message {
@@ -29,7 +30,7 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-image: url("../../images/vaccine-img2.png");
+  background-image: url('../../images/vaccine-img2.png');
   background-size: cover;
   padding: 30% 0 0 6%;
 }
@@ -145,7 +146,7 @@
 }
 
 .cross::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 1rem;
   height: 0.13rem;
@@ -154,7 +155,7 @@
 }
 
 .cross::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 1rem;
   height: 0.13rem;
@@ -173,7 +174,7 @@
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
   .hero {
-    background-image: url("../../images/vaccine-img.png");
+    background-image: url('../../images/vaccine-img.png');
     background-size: cover;
   }
 }
@@ -190,6 +191,7 @@
     right: 0;
     top: 14vh;
     transition: ease 200ms;
+    z-index: 21;
   }
 
   .success_message {
@@ -204,7 +206,7 @@
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background-image: url("../../images/vaccine-img.png");
+    background-image: url('../../images/vaccine-img.png');
     padding: 8% 0 0 7%;
   }
 
@@ -319,7 +321,7 @@
   }
 
   .cross::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 1rem;
     height: 0.13rem;
@@ -328,7 +330,7 @@
   }
 
   .cross::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 1rem;
     height: 0.13rem;
