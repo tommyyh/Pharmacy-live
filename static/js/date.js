@@ -131,7 +131,7 @@ const datePickerErr = getElement('.date_picker_error');
 const bookAppointment = getElement('#book_appointment');
 const datePickerSuccess = getElement('.date_picker_success');
 
-if (window.innerWidth > 481) {
+if (window.innerWidth < 481) {
   dateInput.type = 'date';
 }
 
