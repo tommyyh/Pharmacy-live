@@ -12,7 +12,7 @@
 }
 
 .strengths h2::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 2rem;
   height: 2px;
@@ -82,13 +82,13 @@
   }
 
   .strengths h2::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 3rem;
     height: 2px;
     background: var(--accent-color2);
     left: 42%;
-    margin-top: 27%;
+    margin-top: 5.3rem;
   }
 
   .strengths__card {
@@ -140,7 +140,7 @@
   }
 
   .strengths h2::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 2rem;
     height: 1px;
