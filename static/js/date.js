@@ -182,12 +182,12 @@ continueBooking.addEventListener('click', async () => {
         // Re-assign value
         selectedTime = e.target.querySelector('h6').textContent;
 
-        e.target.style.background = '#ffb498';
+        e.target.style.background = '#36c4e0';
       } else {
         // Re-assign value
         selectedTime = e.target.textContent;
 
-        e.target.parentNode.style.background = '#ffb498';
+        e.target.parentNode.style.background = '#36c4e0';
       }
 
       bookAppointment.style.background = '#d3a150';

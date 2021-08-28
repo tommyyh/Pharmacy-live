@@ -6,13 +6,17 @@ footer {
   height: 60vh;
   background: var(--accent-color);
   margin-top: 27vh;
-  padding: 5% 7% 3.2% 7%;
+  padding: 7% 7% 3.2% 7%;
   bottom: 0;
 }
 
 footer h3 {
   font-size: 2rem;
   color: #fff;
+}
+
+.footer__top {
+  margin-top: 2rem;
 }
 
 .footer__top ul {
@@ -69,6 +73,7 @@ footer h3 {
 
 .footer__socials {
   margin-top: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .footer__socials a {
@@ -177,6 +182,7 @@ footer h3 {
 
   .footer__socials {
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   .footer__socials a {
@@ -197,5 +203,9 @@ footer h3 {
 
   .footer__socials svg:hover > path {
     opacity: 85%;
+  }
+
+  .footer__top {
+    margin-top: 0rem;
   }
 }

@@ -245,7 +245,7 @@ const focusOutDate = (e) => {
       return;
     }
 
-    if (nhsInput.value.length > 10) {
+    if (nhsInput.value.length !== 10) {
       nhsLabel.style.color = '#FF3C3C';
       nhsLabel.innerHTML = 'Please enter a valid NHS number';
       nhsInput.style.border = '0.5px solid #FF3C3C';

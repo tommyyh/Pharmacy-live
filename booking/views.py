@@ -5,6 +5,8 @@ from .models import User
 from datetime import datetime
 from django.utils.decorators import decorator_from_middleware
 from .middlewares import Verify
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 def booking(request):
 	name = request.session['name'] if 'name' in request.session else ''
@@ -122,5 +124,18 @@ def book_appointment(request):
 
 	# Save success message
 	request.session['success'] = 'You Successfully Booked an Appointment'
+
+	# Send email upon
+	body = f" Dear {name}, \n We successfully received your reservation. \n Your appointment is scheduled on {date} at {time} o'clock at the location: 9 Bridge St, Bradford BD1 1RX, UK. You will then get a SMS message containing  all the information you will need. \n\n Sincerely, \n Rimmingtons Pharmacy"
+
+	email = EmailMessage(
+    'Rimmingtons - Appointment',
+    body,
+    settings.EMAIL_HOST_USER,
+    [email],
+  )
+
+	email.fail_silently = False
+	email.send()
 
 	return Response({ 'status': 200 })
