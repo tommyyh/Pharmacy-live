@@ -105,6 +105,12 @@
   display: initial;
 }
 
+#date_label {
+  font-size: 0.88rem;
+  color: #464646;
+  margin-bottom: -0.15rem;
+}
+
 @media all and (min-width: 1050px) {
   .booking {
     display: flex;
@@ -219,6 +225,10 @@
 
   .date_picker_success_on {
     display: initial;
+  }
+
+  #date_label {
+    display: none;
   }
 }
 

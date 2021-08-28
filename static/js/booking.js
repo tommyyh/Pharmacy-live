@@ -27,7 +27,6 @@ const button = getElement('.continue_button');
 if (window.innerWidth < 481) {
   birthInput.type = 'date';
   birthInput.style.padding = '0 5% 0 5%';
-  birthLabel.style.display = 'none';
 }
 
 const focusOutDate = (e) => {
@@ -158,6 +157,10 @@ const focusOutDate = (e) => {
       birthLabel.style.top = '42%';
       birthLabel.style.color = '#464646';
       birthLabel.style.fontSize = '0.81rem';
+
+      if (window.innerWidth > 481) {
+        birthLabel.style.display = 'none';
+      }
     }
   });
 

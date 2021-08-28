@@ -77,7 +77,7 @@ def new_date(request):
 		for x in date:
 			count = User.objects.filter(date=date_value, time=x.time).count()
 
-			if count >= 3:
+			if count >= 14:
 				time_taken.append(x.time)
 
 		# Make a list containing only the values
@@ -126,7 +126,7 @@ def book_appointment(request):
 	request.session['success'] = 'You Successfully Booked an Appointment'
 
 	# Send email upon
-	body = f" Dear {name}, \n We successfully received your reservation. \n Your appointment is scheduled on {date} at {time} o'clock at the location: 9 Bridge St, Bradford BD1 1RX, UK. You will then get a SMS message containing  all the information you will need. \n\n Sincerely, \n Rimmingtons Pharmacy"
+	body = f"Dear {name}, \nWe successfully received your reservation. \nYour appointment is scheduled on {date} at {time} o'clock at the location: 9 Bridge St, Bradford BD1 1RX, UK. You will then get an SMS message containing  all the information you will need. \n\nSincerely, \nRimmingtons Pharmacy"
 
 	email = EmailMessage(
     'Rimmingtons - Appointment',
