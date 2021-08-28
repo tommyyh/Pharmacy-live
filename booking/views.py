@@ -14,6 +14,17 @@ def booking(request):
 	postal = request.session['postal'] if 'postal' in request.session else ''
 	nhs = request.session['nhs'] if 'nhs' in request.session else ''
 
+	# Get todays date
+	current_date = datetime.now()
+	current_month = current_date.month
+	current_day = current_date.day
+
+	if len(str(current_day)) == 1:
+		current_day = f'0{current_date.day}'
+
+	if len(str(current_month)) == 1:
+		current_month = f'0{current_date.month}'
+
 	context = {
 		'name': name,
 		'email': email,
@@ -21,6 +32,7 @@ def booking(request):
 		'birth': birth,
 		'postal': postal,
 		'nhs': nhs,
+		'current_date': f'{current_date.year}-{current_month}-{current_day}',
 	}
 
 	return render(request, 'booking/booking.html', context)

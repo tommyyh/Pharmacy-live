@@ -11,10 +11,14 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 108.5vh;
+  height: 103.2vh;
   background: #fff;
   border-radius: 0.3rem;
   margin-top: 18vh;
+}
+
+#booking__date {
+  min-width: 95.7%;
 }
 
 .booking__cont h1 {
@@ -119,6 +123,10 @@
     background: #fff;
     border-radius: 0.3rem;
     margin-top: 18vh;
+  }
+
+  #booking__date {
+    min-width: initial;
   }
 
   .booking__cont h1 {
