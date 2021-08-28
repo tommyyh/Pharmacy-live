@@ -60,7 +60,7 @@ const focusOutDate = (e) => {
     phoneLabel.style.color = '#333333';
     phoneLabel.style.fontSize = '0.55rem';
 
-    phoneLabel.innerHTML = 'Phone Number';
+    phoneLabel.innerHTML = 'Phone Number (eg. +44 566 6465)';
     phoneInput.style.border = 'none';
   }
 
@@ -132,7 +132,7 @@ const focusOutDate = (e) => {
     phoneLabel.style.color = '#333333';
     phoneLabel.style.fontSize = '0.55rem';
 
-    phoneLabel.innerHTML = 'Phone Number';
+    phoneLabel.innerHTML = 'Phone Number (eg. +44 566 6465)';
     phoneInput.style.border = 'none';
   });
 
@@ -240,6 +240,14 @@ const focusOutDate = (e) => {
     if (!nhsInput.value) {
       nhsLabel.style.color = '#FF3C3C';
       nhsLabel.innerHTML = 'This field is required';
+      nhsInput.style.border = '0.5px solid #FF3C3C';
+
+      return;
+    }
+
+    if (nhsInput.value.length > 10) {
+      nhsLabel.style.color = '#FF3C3C';
+      nhsLabel.innerHTML = 'Please enter a valid NHS number';
       nhsInput.style.border = '0.5px solid #FF3C3C';
 
       return;

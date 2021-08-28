@@ -37,19 +37,19 @@
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(auto-fill, 50% 50%);
-    row-gap: 1%;
+    row-gap: 0.5%;
     width: 100%;
     padding: 0 7% 0 7%;
     margin-top: 2rem;
   }
 
   .gallery img {
-    width: 98%;
-    height: 47vh;
+    width: 97%;
+    height: 53vh;
     object-fit: cover;
   }
 
   .gallery img:last-child {
-    margin-bottom: 68vh;
+    margin-bottom: 28vh;
   }
 }

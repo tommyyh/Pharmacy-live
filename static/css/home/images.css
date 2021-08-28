@@ -15,14 +15,14 @@
 }
 
 .images a {
-  color: var(--accent-color);
+  color: var(--accent-color2);
   margin: 1.74rem -24% 0 auto;
   font-size: 1.2rem;
   transition: 240ms;
 }
 
 .images a:hover {
-  color: var(--accent-color2);
+  color: var(--hover);
 }
 
 @media all and (min-width: 1025px) {
@@ -43,13 +43,13 @@
   }
 
   .images a {
-    color: var(--accent-color);
+    color: var(--accent-color2);
     margin: 1.74rem -7% 0 auto;
     font-size: 1.2rem;
     transition: 240ms;
   }
 
   .images a:hover {
-    color: var(--accent-color2);
+    color: var(--hover);
   }
 }
