@@ -117,7 +117,7 @@
     font-size: 3.7rem;
     line-height: 4.5rem;
     margin-left: 11%;
-    margin-bottom: -1rem;
+    margin-bottom: 0;
   }
 
   .contact__aside {
@@ -214,7 +214,6 @@
     font-size: 0.88rem;
     margin-top: 1rem;
     margin-left: 11%;
-    margin-bottom: 0.8rem;
     display: none;
   }
 
@@ -232,7 +231,7 @@
   }
 
   #project_details li:first-child {
-    margin-top: 2.7rem;
+    margin-top: 2.2rem;
   }
 
   .contact h2::after {

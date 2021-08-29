@@ -18,7 +18,7 @@ def send_email(request):
     'Rimmingtons - Contact Us',
     body,
     settings.EMAIL_HOST_USER,
-    ['tommyyhoangg@gmail.com'],
+    ['tommyyhhoangg@gmail.com'],
   )
 
   email.fail_silently = False
