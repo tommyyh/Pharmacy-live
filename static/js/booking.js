@@ -23,6 +23,8 @@ const birthLabel = getElement('#date_label');
 const postalLabel = getElement('#postal_label');
 const nhsLabel = getElement('#nhs_label');
 const button = getElement('.continue_button');
+const checkbox = getElement('#checkbox');
+const checkboxLabel = getElement('#checkbox_label');
 
 if (window.innerWidth < 481) {
   birthInput.type = 'date';
@@ -87,7 +89,7 @@ const focusOutDate = (e) => {
     nhsLabel.style.color = '#333333';
     nhsLabel.style.fontSize = '0.55rem';
 
-    nhsLabel.innerHTML = 'NHS Number';
+    nhsLabel.innerHTML = 'NHS Number (eg. 237-374-3746)';
     nhsInput.style.border = 'none';
   }
 
@@ -186,7 +188,7 @@ const focusOutDate = (e) => {
     nhsLabel.style.color = '#333333';
     nhsLabel.style.fontSize = '0.55rem';
 
-    nhsLabel.innerHTML = 'NHS Number';
+    nhsLabel.innerHTML = 'NHS Number (eg. 237-374-3746)';
     nhsInput.style.border = 'none';
   });
 
@@ -248,10 +250,16 @@ const focusOutDate = (e) => {
       return;
     }
 
-    if (nhsInput.value.length !== 10) {
+    if (nhsInput.value.length !== 12) {
       nhsLabel.style.color = '#FF3C3C';
       nhsLabel.innerHTML = 'Please enter a valid NHS number';
       nhsInput.style.border = '0.5px solid #FF3C3C';
+
+      return;
+    }
+    if (!checkbox.checked) {
+      checkboxLabel.style.color = '#FF3C3C';
+      checkbox.style.border = '1px solid #FF3C3C';
 
       return;
     }

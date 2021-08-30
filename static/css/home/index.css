@@ -32,7 +32,7 @@
   height: 100vh;
   background-image: url('../../images/vaccine-img2.png');
   background-size: cover;
-  padding: 30% 0 0 6%;
+  padding: 20% 0 0 6%;
 }
 
 .hero h1 span {
@@ -40,7 +40,8 @@
 }
 
 .hero h1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
   color: #fff;
 }
 
@@ -52,7 +53,7 @@
   font-size: 1.05rem;
   font-weight: 400;
   border: none;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .vaccines {
@@ -68,16 +69,21 @@
 }
 
 .vaccines h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
   margin-top: 2rem;
 }
 
-.vaccines p {
+.vaccines li {
   font-size: 0.933rem;
   color: #666666;
   font-weight: 100;
-  margin: 1rem 10% 0 0;
-  line-height: 2rem;
+  margin: 1.2rem 2% 0 5%;
+  line-height: 1.5rem;
+}
+
+.vaccines ul {
+  margin-top: 0.8rem;
 }
 
 .vaccines div {
@@ -215,8 +221,9 @@
   }
 
   .hero h1 {
-    font-size: 3.18rem;
+    font-size: 2.8rem;
     color: #fff;
+    line-height: initial;
   }
 
   .hero button {
@@ -242,19 +249,23 @@
 
   .vaccines img {
     width: 32rem;
-    height: 24rem;
+    height: 28rem;
   }
 
   .vaccines h2 {
     font-size: 2.8rem;
   }
 
-  .vaccines p {
+  .vaccines li {
     font-size: 0.933rem;
     color: #666666;
     font-weight: 100;
-    margin: 1rem 38% 0 0;
-    line-height: 2rem;
+    margin: 0.8rem 3% 0 3.3%;
+    line-height: 1.5rem;
+  }
+
+  .vaccines ul {
+    margin-top: 0.8rem;
   }
 
   .vaccines div {

@@ -7,7 +7,7 @@
 }
 
 .strengths h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   position: relative;
 }
 
@@ -17,8 +17,8 @@
   width: 2rem;
   height: 2px;
   background: var(--accent-color2);
-  left: 42%;
-  margin-top: 4rem;
+  left: 44%;
+  margin-top: 3.7rem;
 }
 
 .strengths__card {
@@ -26,7 +26,7 @@
   flex-direction: column;
   width: 100%;
   align-items: center;
-  margin-top: 3.5rem;
+  margin-top: 3.9rem;
 }
 
 .strengths__card:first-child {
@@ -49,8 +49,18 @@
 }
 
 .strengths__card h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-top: 1.65rem;
+  text-align: center;
+}
+
+.strengths__card a {
+  color: var(--accent-color2);
+  margin-top: 2rem;
+}
+
+.strengths__card h3 span {
+  display: inline-block;
 }
 
 .strengths__card p {
@@ -59,7 +69,7 @@
   font-weight: 200;
   color: #818181;
   text-align: center;
-  margin: 0.5rem 15% 0 15%;
+  margin: 1rem 15% 0 15%;
 }
 
 @media all and (min-width: 1025px) {
@@ -87,7 +97,7 @@
     width: 3rem;
     height: 2px;
     background: var(--accent-color2);
-    left: 42%;
+    left: 45%;
     margin-top: 5.3rem;
   }
 
@@ -119,6 +129,7 @@
   }
 
   .strengths__card h3 {
+    text-align: center;
     font-size: 1.55rem;
     margin-top: 1.65rem;
   }
@@ -129,7 +140,7 @@
     font-weight: 200;
     color: #818181;
     text-align: center;
-    margin: 0.5rem 10% 0 10%;
+    margin: 0.8rem 10% 0 10%;
   }
 }
 

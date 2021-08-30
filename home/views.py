@@ -14,6 +14,9 @@ def home(request):
 def gallery(request):
   return render(request, 'home/gallery.html')
 
+def privacy_policy(request):
+  return render(request, 'home/privacyPolicy.html')
+
 @api_view(['GET'])
 def remove_message(request):
   request.session['success'] = ''

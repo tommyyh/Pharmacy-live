@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'booking',
     'contact',
+    'about',
     'rest_framework',
 ]
 

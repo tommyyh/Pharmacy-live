@@ -6,10 +6,18 @@
   </a>
 
   <ul class="nav__links">
-    <li><a href="{% url 'home-home' %}">Home</a></li>
-    <li><a href="{% url 'booking-page' %}">Booking</a></li>
-    <li><a href="{% url 'home-gallery' %}">Gallery</a></li>
-    <li><a href="{% url 'contact' %}">Contact</a></li>
+    <li class="nav__link"><a href="{% url 'home-home' %}">Home</a></li>
+    <li class="nav__link"><a href="{% url 'about-about' %}">About</a></li>
+    <span style="position: relative">
+      <li class="nav__link" style="color: #f0f0f0; cursor: pointer">Booking</li>
+
+      <div class="dropdown">
+        <a href="{% url 'booking-page' %}">Public</a>
+        <a href="{% url 'booking-page' %}">Workplace</a>
+      </div>
+    </span>
+    <li class="nav__link"><a href="{% url 'home-gallery' %}">Gallery</a></li>
+    <li class="nav__link"><a href="{% url 'contact' %}">Contact</a></li>
   </ul>
 
   <div class="burger"></div>
@@ -20,7 +28,9 @@
 
       <ul>
         <li><a href="{% url 'home-home' %}">Home</a></li>
-        <li><a href="{% url 'booking-page' %}">Booking</a></li>
+        <li><a href="{% url 'about-about' %}">About</a></li>
+        <li><a href="{% url 'booking-page' %}">Booking - Public</a></li>
+        <li><a href="{% url 'booking-page' %}">Booking - Workplace</a></li>
         <li><a href="{% url 'home-gallery' %}">Gallery</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
       </ul>

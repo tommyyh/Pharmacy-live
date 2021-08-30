@@ -45,8 +45,18 @@
     </div>
 
     <div class="booking__input">
-      <label for="booking__nhs" id="nhs_label">NHS Number</label>
-      <input type="number" name="nhs" id="booking__nhs" value="{{ nhs }}" />
+      <label for="booking__nhs" id="nhs_label"
+        >NHS Number (eg. 237-374-3746)</label
+      >
+      <input type="text" name="nhs" id="booking__nhs" value="{{ nhs }}" />
+    </div>
+
+    <div class="privacy">
+      <input type="checkbox" id="checkbox" />
+      <label for="checkbox" id="checkbox_label">
+        I have read and accepted the
+        <a href="{% url 'privacy-policy' %}">Privacy & Policy</a>
+      </label>
     </div>
 
     <button class="continue_button">Continue</button>
