@@ -23,6 +23,8 @@ nav {
 
 .nav__left {
   display: flex;
+  text-decoration: none;
+  color: #fff;
   align-items: center;
   height: 100%;
 }
