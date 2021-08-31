@@ -14,11 +14,17 @@
 (() => {
   const nav = document.querySelector('nav');
 
-  if (window.location.pathname === '/') {
+  if (
+    window.location.pathname === '/' ||
+    window.location.pathname === '/about/'
+  ) {
     nav.classList.add('nav_trans');
   }
 
-  if (window.location.pathname === '/') {
+  if (
+    window.location.pathname === '/' ||
+    window.location.pathname === '/about/'
+  ) {
     window.addEventListener('scroll', () => {
       const position = window.scrollY > 140;
 
