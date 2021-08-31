@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Public, Workplace
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.utils.decorators import decorator_from_middleware
 from .middlewares import Verify
 from django.core.mail import EmailMessage
@@ -41,18 +41,18 @@ def booking(request):
 
 @decorator_from_middleware(Verify)
 def date(request):
-	current_date = datetime.now()
-	current_month = current_date.month
-	current_day = current_date.day
+	current_month = (datetime.now() + timedelta(days=1)).month
+	current_year = (datetime.now() + timedelta(days=1)).year
+	current_day = (datetime.now() + timedelta(days=1)).day
 
 	if len(str(current_day)) == 1:
-		current_day = f'0{current_date.day}'
+		current_day = f'0{current_day}'
 
 	if len(str(current_month)) == 1:
-		current_month = f'0{current_date.month}'
+		current_month = f'0{current_month}'
 
 	context = {
-		'current_date': f'{current_date.year}-{current_month}-{current_day}'
+		'current_date': f'{current_year}-{current_month}-{current_day}'
 	}
 
 	return render(request, 'booking/date.html', context)

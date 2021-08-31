@@ -71,7 +71,7 @@
     height: 100vh;
     background: url('../../images/about-img2.png');
     background-size: cover;
-    padding: 4vh 40% 0 7%;
+    padding: 4vh 45% 0 7%;
   }
 
   .about h1 {
@@ -84,14 +84,14 @@
     font-size: 0.9rem;
     font-weight: 200;
     margin-top: 0.5rem;
-    line-height: 1.7rem;
+    line-height: 1.8rem;
   }
 
   .about h6 {
     color: var(--accent-color2);
     font-size: 1.1rem;
     font-weight: 500;
-    margin-top: 1.7rem;
+    margin-top: 3rem;
   }
 
   .covid {
