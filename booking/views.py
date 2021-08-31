@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import User
+from .models import Public, Workplace
 from datetime import datetime
 from django.utils.decorators import decorator_from_middleware
 from .middlewares import Verify
@@ -61,7 +61,7 @@ def date(request):
 def new_date(request):
 	date_value = request.data['date']
 	time_taken = []
-	date = User.objects.filter(date=date_value)
+	date = Public.objects.filter(date=date_value)
 	time = [
 		'9:00', '9:05', '9:10', '9:15', '9:20', '9:25', '9:30', '9:35', '9:40', '9:45', '9:50', '9:55', '10:00', '10:05', '10:10', '10:15', '10:20', '10:25', '10:30', '10:35', '10:40', '10:45', '10:50', '10:55',
   	'11:00', '11:05', '11:10', '11:15', '11:20', '11:25', '11:30', '11:35', '11:40', '11:45', '11:50', '11:55', '12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50', '12:55', '14:05', '14:10',
@@ -75,7 +75,7 @@ def new_date(request):
 	else:
 		# Take all associated models and put them into a list
 		for x in date:
-			count = User.objects.filter(date=date_value, time=x.time).count()
+			count = Public.objects.filter(date=date_value, time=x.time).count()
 
 			if count >= 14:
 				time_taken.append(x.time)
@@ -93,6 +93,7 @@ def new_user(request):
 	request.session['birth'] = request.data['birth']
 	request.session['postal'] = request.data['postal']
 	request.session['nhs'] = request.data['nhs']
+	request.session['location'] = request.data['location']
 
 	return Response({ 'status': 200 })
 
@@ -104,15 +105,23 @@ def book_appointment(request):
 	birth = request.session['birth']
 	postal = request.session['postal']
 	nhs = request.session['nhs']
+	location = request.session['location']
 	date = request.data['date']
 	time = request.data['time']
 
 	# Save to the db
-	user = User(
-		name=name, email=email, phone=phone, date=date, time=time, postal_code=postal,
-		nhs_number=nhs, birth_date=birth
-	)
-	user.save()
+	if location == 'public':
+		user = Public(
+			name=name, email=email, phone=phone, date=date, time=time, postal_code=postal,
+			nhs_number=nhs, birth_date=birth
+		)
+		user.save()
+	else:
+		user = Workplace(
+			name=name, email=email, phone=phone, date=date, time=time, postal_code=postal,
+			nhs_number=nhs, birth_date=birth
+		)
+		user.save()
 
 	# Clear session
 	request.session['name'] = ''
@@ -121,15 +130,16 @@ def book_appointment(request):
 	request.session['birth'] = ''
 	request.session['postal'] = ''
 	request.session['nhs'] = ''
+	request.session['location'] = ''
 
 	# Save success message
 	request.session['success'] = 'You Successfully Booked an Appointment'
 
 	# Send email upon
-	body = f"Dear {name}, \nWe successfully received your reservation. \nYour appointment is scheduled on {date} at {time} o'clock at the location: 9 Bridge St, Bradford BD1 1RX, UK. You will then get an SMS message containing  all the information you will need. \n\nSincerely, \nRimmingtons Pharmacy"
+	body = f"Dear {name}, \n\nIt’s confirmed, we’ll see you on {date}! Thank you for booking your flu vaccination with Rimmington’s Pharmacy. You’ll find details of your reservation enclosed below. \n\nDate: {date} \nTime: {time} \n\nIf you need to get in touch, you can email or phone us directly. \n\n\nThanks again, \nRimmington’s Pharmacy"
 
 	email = EmailMessage(
-    'Rimmingtons - Appointment',
+    'Flu Vaccination Confirmation with Rimmington’s Pharmacy',
     body,
     settings.EMAIL_HOST_USER,
     [email],

@@ -9,6 +9,7 @@
   height: 100vh;
   background: url('../../images/about-img.png');
   padding: 4vh 10% 0 7%;
+  background-size: cover;
 }
 
 .about h1 {

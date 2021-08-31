@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.contrib.auth.decorators import login_required
-from booking.models import User
+from booking.models import Public
 from django_xhtml2pdf.utils import generate_pdf
 
 def home(request):
@@ -26,7 +26,7 @@ def remove_message(request):
 @login_required
 def today(request):
   res = HttpResponse(content_type='application/pdf')
-  users = User.objects.all()
+  users = Public.objects.all()
   pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users })
 
   return pdf

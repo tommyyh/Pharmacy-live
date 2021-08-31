@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import User
+from .models import Public, Workplace
 
 # Register your models here.
-admin.site.register(User)
+admin.site.register(Public)
+admin.site.register(Workplace)

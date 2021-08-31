@@ -8,6 +8,18 @@ const getElement = (tag) => {
   return element;
 };
 
+const title = document.querySelector('.booking__title').querySelector('h1');
+const path = window.location.pathname;
+
+// Chnage headlines whether its for public or workplace
+if (path === '/booking/public/') {
+  document.title = "Rimmington's • Public Booking";
+  title.innerHTML = 'Public Booking';
+} else if (path === '/booking/workplace/') {
+  title.innerHTML = 'Workplace Booking';
+  document.title = "Rimmington's • Workplace Booking";
+}
+
 const nameInput = getElement('#booking__name');
 const emailInput = getElement('#booking__email');
 const msgInput = getElement('#booking__message');
@@ -271,6 +283,7 @@ const focusOutDate = (e) => {
       birth: birthInput.value,
       postal: postalInput.value,
       nhs: nhsInput.value,
+      location: path === '/booking/public/' ? 'public' : 'workplace',
     });
 
     if (res.data.status === 200) {
