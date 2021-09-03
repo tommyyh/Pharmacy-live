@@ -43,7 +43,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
   const button = document.querySelector('.hero').querySelector('button');
 
   button.addEventListener('click', () => {
-    window.location.href = '/booking';
+    window.location.href = '/booking/public/';
   });
 })();
 

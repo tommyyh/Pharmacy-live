@@ -41,6 +41,7 @@ nav {
 
 nav h1 {
   font-size: 1.44rem;
+  margin-left: 0.45rem;
 }
 
 .nav__link {
@@ -203,8 +204,8 @@ nav h1 {
   }
 
   .nav__left img {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
   }
 
   .nav__link a {
@@ -214,7 +215,7 @@ nav h1 {
 
   nav h1 {
     font-size: 1.63rem;
-    margin-left: 0rem;
+    margin-left: 0.66rem;
   }
 
   .nav__links {
