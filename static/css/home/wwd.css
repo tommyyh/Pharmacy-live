@@ -49,9 +49,14 @@
 }
 
 .strengths__card h3 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin-top: 1.65rem;
+  color: #464646;
   text-align: center;
+}
+
+.strengths__card h3 span {
+  display: block;
 }
 
 .strengths__card a {
@@ -83,6 +88,7 @@
 
   .strengths__cards {
     display: flex;
+    width: 100%;
     padding: 2% 8% 0 8%;
   }
 
@@ -130,8 +136,13 @@
 
   .strengths__card h3 {
     text-align: center;
-    font-size: 1.55rem;
+    font-size: 1.41rem;
     margin-top: 1.65rem;
+    color: #464646;
+  }
+
+  .strengths__card h3 span {
+    display: block;
   }
 
   .strengths__card p {
