@@ -60,6 +60,7 @@ def date(request):
 @api_view(['POST'])
 def new_date(request):
 	date_value = request.data['date']
+	public_count = 0
 	time_taken = []
 	date = Public.objects.filter(date=date_value)
 	time = [
@@ -68,7 +69,7 @@ def new_date(request):
   	'14:15', '14:20', '14:25', '14:30', '14:35', '14:40', '14:45', '14:50', '14:55', '15:00', '15:05', '15:10', '15:15', '15:20', '15:25', '15:30', '15:35', '15:40', '15:45', '15:50', '15:55', '16:00', '16:05', '16:10',
   	'16:15', '16:20', '16:25', '16:30', '16:35', '16:40', '16:45', '16:50', '16:55', '17:00', '17:05', '17:10', '17:15', '17:20', '17:25', '17:30', '17:35', '17:40', '17:45', '17:50', '17:55', '18:00', '18:05', '18:10',
   	'18:15', '18:20', '18:25', '18:30',
-	];
+	]
 
 	if not date:
 		return Response({ 'available_times': time })
@@ -76,14 +77,22 @@ def new_date(request):
 		# Take all associated models and put them into a list
 		for x in date:
 			count = Public.objects.filter(date=date_value, time=x.time).count()
+			public_count = count
 
 			if count >= 14:
 				time_taken.append(x.time)
 
-		# Make a list containing only the values
-		available_times = [x for x in time if x not in time_taken]
+		for y in date:
+			count2 = Workplace.objects.filter(date=date_value, time=y.time).count()
+			taken_left = 14 - public_count
 
-		return Response({ 'available_times': available_times })
+			if count2 >= taken_left:
+				time_taken.append(x.time)
+
+			# Make a list containing only the values
+			available_times = [x for x in time if x not in time_taken]
+
+			return Response({ 'available_times': available_times })
 
 @api_view(['POST'])
 def new_user(request):

@@ -1,5 +1,9 @@
 import os
 from decouple import config
+import json
+
+with open ('/etc/config.json') as config_file:
+    conf = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -8,17 +12,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = conf['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if config('ENV') == 'development':
-    DEBUG = True
+DEBUG = True
 
-    ALLOWED_HOSTS = []
-else:
-    DEBUG = False
-
-    ALLOWED_HOSTS = ['rimmingtons.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['www.rimmingtonspharmacy.net', '176.58.122.183']
 
 
 # Application definition
@@ -79,11 +78,11 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASS'),
+        'NAME': conf['DB_NAME'],
+        'HOST': conf['DB_HOST'],
+        'PORT': conf['DB_PORT'],
+        'USER': conf['DB_USER'],
+        'PASSWORD': conf['DB_PASS'],
         'OPTIONS': {
             'charset': 'utf8mb4',
             'use_unicode': True
@@ -135,12 +134,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-if config('ENV') == 'production':
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = config('EMAIL_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_PASS')
+EMAIL_HOST_USER = conf.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = conf.get('EMAIL_PASS')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
