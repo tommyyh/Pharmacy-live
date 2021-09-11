@@ -16,9 +16,8 @@ class Verify():
     phone = request.session['phone']
     birth = request.session['birth']
     postal = request.session['postal']
-    nhs = request.session['nhs']
 
-    if not name or not email or not phone or not birth or not postal or not nhs:
+    if not name or not email or not phone or not birth or not postal:
       return redirect('booking-page')
     else:
       return

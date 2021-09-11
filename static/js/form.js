@@ -107,16 +107,6 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
         msg: msgInput.value,
       });
 
-      // if (res.data.status === 400) {
-      //   emailLabel.style.color = '#FF3C3C';
-      //   emailLabel.innerHTML = 'Email does not exist';
-      //   emailInput.style.border = '0.5px solid #FF3C3C';
-
-      //   button.innerHTML = 'Send Message';
-
-      //   return;
-      // }
-
       if (res.data.status === 200) {
         nameInput.value = '';
         emailInput.value = '';

@@ -51,8 +51,19 @@ def date(request):
 	if len(str(current_month)) == 1:
 		current_month = f'0{current_month}'
 
+	current_month2 = (datetime.now() + timedelta(days=8)).month
+	current_year2 = (datetime.now() + timedelta(days=8)).year
+	current_day2 = (datetime.now() + timedelta(days=8)).day
+
+	if len(str(current_day2)) == 1:
+		current_day2 = f'0{current_day2}'
+
+	if len(str(current_month2)) == 1:
+		current_month2 = f'0{current_month2}'
+
 	context = {
-		'current_date': f'{current_year}-{current_month}-{current_day}'
+		'current_date': f'{current_year}-{current_month}-{current_day}',
+		'current_date2': f'{current_year2}-{current_month2}-{current_day2}',
 	}
 
 	return render(request, 'booking/date.html', context)

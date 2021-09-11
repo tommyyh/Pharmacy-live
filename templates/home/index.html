@@ -39,10 +39,7 @@
     <div class="container">
       <header>{% include 'all/nav.html' %}</header>
 
-      <div class="popup">
-        <a href="{% url 'booking-page' %}">Book An Appointment</a>
-        <div class="cross"></div>
-      </div>
+      <span>{% include 'home/popup.html' %}</span>
 
       {% if success %}
       <div class="success_message_cont">
@@ -52,9 +49,9 @@
 
       <main class="hero">
         <h1>
-          <span>There’s Nothing More Important Than</span>
-          <span>Your Health. Book Your Flu Vaccination Now And</span>
-          <span>Fight Against The Disease</span>
+          Get your FREE Flu jab with Rimmingtons Pharmacy today. There is
+          nothing more important than your health, BOOK YOUR JAB TODAY and fight
+          against the flu!
         </h1>
 
         <button>Book Appointment</button>

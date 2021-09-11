@@ -8,25 +8,19 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 (() => {
   const popup = document.querySelector('.popup');
+  const popupBack = document.querySelector('.popup_background');
   const cross = document.querySelector('.cross');
+  const close = document.querySelector('.popup__close');
 
-  if (window.innerWidth > 1024) {
-    cross.addEventListener('click', () => {
-      popup.style.right = '-27%';
-    });
+  cross.addEventListener('click', () => {
+    popup.style.display = 'none';
+    popupBack.style.display = 'none';
+  });
 
-    setTimeout(() => {
-      popup.style.right = '0%';
-    }, 780);
-  } else {
-    cross.addEventListener('click', () => {
-      popup.style.top = '-4.3rem';
-    });
-
-    setTimeout(() => {
-      popup.style.top = '0%';
-    }, 780);
-  }
+  close.addEventListener('click', () => {
+    popup.style.display = 'none';
+    popupBack.style.display = 'none';
+  });
 })();
 
 (() => {

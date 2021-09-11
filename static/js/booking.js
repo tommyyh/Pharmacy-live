@@ -254,21 +254,6 @@ const focusOutDate = (e) => {
       return;
     }
 
-    if (!nhsInput.value) {
-      nhsLabel.style.color = '#FF3C3C';
-      nhsLabel.innerHTML = 'This field is required';
-      nhsInput.style.border = '0.5px solid #FF3C3C';
-
-      return;
-    }
-
-    if (nhsInput.value.length !== 12) {
-      nhsLabel.style.color = '#FF3C3C';
-      nhsLabel.innerHTML = 'Please enter a valid NHS number';
-      nhsInput.style.border = '0.5px solid #FF3C3C';
-
-      return;
-    }
     if (!checkbox.checked) {
       checkboxLabel.style.color = '#FF3C3C';
       checkbox.style.border = '1px solid #FF3C3C';
@@ -287,7 +272,7 @@ const focusOutDate = (e) => {
     });
 
     if (res.data.status === 200) {
-      window.location.href = '/booking/date/';
+      window.location.href = '/booking/date';
     }
   });
 })();

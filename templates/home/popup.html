@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="popup">
+  <div class="popup__top">
+    <h3>Book a Free Flu Jab</h3>
+    <div class="cross"></div>
+  </div>
+
+  <a href="{% url 'booking-page' %}">Book An Appointment</a>
+
+  <div class="popup__imgs">
+    <img src="{% static '/images/flu1.jpeg' %}" alt="Flu jabs" />
+    <img src="{% static '/images/flu2.jpeg' %}" alt="Flu jabs" />
+    <img src="{% static '/images/flu3.jpeg' %}" alt="Flu jabs" />
+    <img src="{% static '/images/flu4.jpeg' %}" alt="Flu jabs" />
+    <img src="{% static '/images/flu5.jpeg' %}" alt="Flu jabs" />
+  </div>
+
+  <h5 class="popup__close">Close</h5>
+</div>
+
+<div class="popup_background"></div>
