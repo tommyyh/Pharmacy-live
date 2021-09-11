@@ -8,6 +8,25 @@ const getElement = (tag) => {
   return element;
 };
 
+(async () => {
+  const bookTitle = getElement('.booking__title');
+  const bookCont = getElement('.booking__cont');
+  const bookWorkplace = getElement('.booking__workplace');
+  const bookForm = getElement('.booking__form');
+
+  if (window.location.pathname === '/booking/workplace/') {
+    const res = await axios.get('/booking/workplace-status/');
+
+    if (res.data.workplace_status === false) {
+      bookTitle.classList.add('booking__title_x');
+      bookCont.classList.add('booking__cont_x');
+    } else {
+      bookWorkplace.style.display = 'none';
+      bookForm.style.display = 'initial';
+    }
+  }
+})();
+
 const title = document.querySelector('.booking__title').querySelector('h1');
 const path = window.location.pathname;
 

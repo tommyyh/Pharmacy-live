@@ -27,3 +27,11 @@ class Workplace(models.Model):
 
 	def __str__(self):
 		return f'{self.name}: {self.date} - {self.time}'
+
+class AdminTask(models.Model):
+	name = models.CharField(max_length=255, null=True)
+	title = models.CharField(max_length=255, null=True)
+	is_open = models.BooleanField(default=False)
+
+	def __str__(self):
+		return f'{self.title}: {self.is_open}'

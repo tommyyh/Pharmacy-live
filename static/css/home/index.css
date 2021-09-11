@@ -35,10 +35,6 @@
   padding: 20% 0 0 6%;
 }
 
-.hero h1 span {
-  display: block;
-}
-
 .hero h1 {
   font-weight: 900;
   font-size: 1.5rem;
@@ -49,7 +45,8 @@
 .hero h1 span {
   display: inline-block;
   font-weight: 10000;
-  color: #f73737;
+  text-decoration: underline;
+  color: var(--accent-color2);
 }
 
 .hero button {
@@ -286,12 +283,9 @@
   }
 
   .hero h1 span {
-    display: block;
-  }
-
-  .hero h1 span {
+    text-decoration: underline;
+    color: var(--accent-color2);
     display: inline-block;
-    color: #f73737;
   }
 
   .hero h1 {

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import Public, Workplace
+from .models import Public, Workplace, AdminTask
 from datetime import datetime, timedelta
 from django.utils.decorators import decorator_from_middleware
 from .middlewares import Verify
@@ -38,6 +38,12 @@ def booking(request):
 	}
 
 	return render(request, 'booking/booking.html', context)
+
+@api_view(['GET'])
+def workplace_status(request):
+	workplace_status = AdminTask.objects.get(name='workplace')
+
+	return Response({ 'workplace_status': workplace_status.is_open })
 
 @decorator_from_middleware(Verify)
 def date(request):
@@ -116,10 +122,10 @@ def new_user(request):
 
 	# Check if user exists
 	matching_users1 = Public.objects.filter(
-		name=name, email=email, phone=phone
+		name=name, email=email, phone=phone, postal_code=postal
 	)
 	matching_users2 = Workplace.objects.filter(
-		name=name, email=email, phone=phone
+		name=name, email=email, phone=phone, postal_code=postal
 	)
 
 	if matching_users1 or matching_users2:
