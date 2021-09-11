@@ -2,8 +2,17 @@
 
 <nav>
   <a href="{% url 'home-home' %}" class="nav__left">
-    <img src="{% static '/images/svg/rimmingtons.svg' %}" alt="Rimmingtons">
-    <h1>Rimmington's</h1>
+    <img src="{% static '/images/svg/rimmingtons.svg' %}" alt="Rimmingtons" />
+    <h1 class="nav__mobile_title">
+      <div>Rimmington</div>
+      <div class="nav__subtitle">Pharmacy</div>
+    </h1>
+    <h1 class="nav__desktop_title">
+      <div>Rimmington Pharmacy</div>
+      <div class="nav__subtitle_d">
+        Bradford’s oldest pharmacy founded in 1842
+      </div>
+    </h1>
   </a>
 
   <ul class="nav__links">

@@ -6,11 +6,18 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
   await axios.get('/remove-message/');
 })();
 
-(() => {
+(async () => {
   const popup = document.querySelector('.popup');
   const popupBack = document.querySelector('.popup_background');
   const cross = document.querySelector('.cross');
   const close = document.querySelector('.popup__close');
+
+  const res = await axios.get('/pop-up-check/');
+
+  if (res.data.pop_up === 'not') {
+    popup.style.display = 'flex';
+    popupBack.style.display = 'initial';
+  }
 
   cross.addEventListener('click', () => {
     popup.style.display = 'none';
@@ -21,6 +28,10 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
     popup.style.display = 'none';
     popupBack.style.display = 'none';
   });
+})();
+
+(async () => {
+  await axios.get('/pop-up-read/');
 })();
 
 (() => {

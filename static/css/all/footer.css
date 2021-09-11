@@ -8,6 +8,7 @@ footer {
   margin-top: 27vh;
   padding: 7% 7% 3.2% 7%;
   bottom: 0;
+  border-top: 3px solid var(--accent-color2);
 }
 
 footer h3 {
@@ -20,7 +21,7 @@ footer h3 {
 }
 
 .footer__top ul {
-  margin-top: 0.53rem;
+  margin-top: 0.9rem;
 }
 
 .footer__top ul li {
@@ -93,6 +94,13 @@ footer h3 {
 
 .footer__socials svg:hover > path {
   opacity: 85%;
+}
+
+.footer__subtitle {
+  font-size: 0.7rem;
+  color: #c9c9c9;
+  margin-top: -0.36rem;
+  font-weight: 500;
 }
 
 @media all and (min-width: 1050px) {
@@ -206,5 +214,12 @@ footer h3 {
 
   .footer__top {
     margin-top: 0rem;
+  }
+
+  .footer__subtitle {
+    display: inline-block;
+    font-size: 2.6rem;
+    color: #fff;
+    font-weight: 800;
   }
 }

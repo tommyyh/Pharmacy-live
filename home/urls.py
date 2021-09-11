@@ -8,4 +8,6 @@ urlpatterns = [
   path('remove-message/', views.remove_message, name='home-remove-message'),
   path('today-workplace/', views.today_workplace, name='home-today'),
   path('today-public/', views.today, name='home-today-workplace'),
+  path('pop-up-read/', views.pop_up, name='pop-up-read'),
+  path('pop-up-check/', views.pop_up_check, name='pop-up-check'),
 ]

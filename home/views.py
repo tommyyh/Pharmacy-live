@@ -38,3 +38,22 @@ def today_workplace(request):
   pdf = generate_pdf('home/today_workplace.html', file_object=res, context={ 'users': users })
 
   return pdf
+
+@api_view(['GET'])
+def pop_up(request):
+  request.session['popUpRead'] = 'read'
+
+  return Response({ 'status': 200 })
+
+@api_view(['GET'])
+def pop_up_check(request):
+  pop_up = ''
+
+  if 'popUpRead' not in request.session:
+    pop_up = 'not'
+  elif request.session['popUpRead'] == '':
+    pop_up = 'not'
+  else:
+    pop_up = request.session['popUpRead']
+
+  return Response({ 'status': 200, 'pop_up': pop_up })

@@ -180,6 +180,17 @@ nav h1 {
   margin-right: 0.8rem;
 }
 
+.nav__subtitle {
+  font-size: 0.7rem;
+  color: #c9c9c9;
+  margin-top: -0.36rem;
+  font-weight: 500;
+}
+
+.nav__desktop_title {
+  display: none;
+}
+
 @media all and (min-width: 1050px) {
   nav {
     display: flex;
@@ -315,5 +326,20 @@ nav h1 {
     border-bottom-right-radius: 0px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+  }
+
+  .nav__mobile_title {
+    display: none;
+  }
+
+  .nav__desktop_title {
+    display: initial;
+  }
+
+  .nav__subtitle_d {
+    font-size: 0.7rem;
+    color: #c7c7c7;
+    margin-top: -0.2rem;
+    font-weight: 300;
   }
 }
