@@ -107,13 +107,30 @@ def new_date(request):
 
 @api_view(['POST'])
 def new_user(request):
-	request.session['name'] = request.data['name']
-	request.session['email'] = request.data['email']
-	request.session['phone'] = request.data['phone']
-	request.session['birth'] = request.data['birth']
-	request.session['postal'] = request.data['postal']
-	request.session['nhs'] = request.data['nhs']
-	request.session['location'] = request.data['location']
+	name = request.data['name']
+	email = request.data['email']
+	phone = request.data['phone']
+	birth = request.data['birth']
+	postal = request.data['postal']
+	nhs = request.data['nhs']
+
+	# Check if user exists
+	matching_users1 = Public.objects.filter(
+		name=name, email=email, phone=phone, birth_date=birth
+	)
+	matching_users2 = Workplace.objects.filter(
+		name=name, email=email, phone=phone, birth_date=birth
+	)
+
+	if matching_users1 or matching_users2:
+		return Response({ 'status': 402 })
+
+	request.session['name'] = name
+	request.session['email'] = email
+	request.session['phone'] = phone
+	request.session['birth'] = birth
+	request.session['postal'] = postal
+	request.session['nhs'] = nhs
 
 	return Response({ 'status': 200 })
 

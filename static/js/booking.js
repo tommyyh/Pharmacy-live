@@ -212,6 +212,12 @@ const focusOutDate = (e) => {
     }
   });
 
+  checkbox.addEventListener('click', () => {
+    if (checkbox.checked) {
+      checkboxLabel.style.color = '#000';
+    }
+  });
+
   // Send message
   button.addEventListener('click', async () => {
     if (!nameInput.value) {
@@ -268,8 +274,14 @@ const focusOutDate = (e) => {
       birth: birthInput.value,
       postal: postalInput.value,
       nhs: nhsInput.value,
-      location: path === '/booking/public/' ? 'public' : 'workplace',
+      pathname: path === '/booking/public/' ? 'public' : 'workplace',
     });
+
+    if (res.data.status === 402) {
+      const existing = document.querySelector('.existing');
+
+      existing.style.display = 'initial';
+    }
 
     if (res.data.status === 200) {
       window.location.href = '/booking/date';

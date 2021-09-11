@@ -34,14 +34,25 @@
 
   <div class="menu">
     <span>
-      <h3>Rimmingtons</h3>
+      <h3>
+        Rimmington
+        <div class="nav__subtitle2">Pharmacy</div>
+      </h3>
 
       <ul>
         <li><a href="{% url 'home-home' %}">Home</a></li>
         <li><a href="{% url 'about-about' %}">About</a></li>
-        <li><a href="{% url 'booking-page' %}">Booking - Public</a></li>
         <li>
-          <a href="{% url 'booking-page-workplace' %}">Booking - Workplace</a>
+          <a href="{% url 'booking-page' %}"
+            ><span style="font-weight: 900; color: #1f1f1f">FLU</span> Booking -
+            Public</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'booking-page-workplace' %}"
+            ><span style="font-weight: 900; color: #1f1f1f">FLU</span> Booking -
+            Workplace</a
+          >
         </li>
         <li><a href="{% url 'home-gallery' %}">Gallery</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>

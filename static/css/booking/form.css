@@ -102,6 +102,15 @@
   margin-left: 0.5rem;
 }
 
+.existing {
+  display: none;
+  color: #fc4a4a;
+  font-size: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: -1.5rem;
+  font-weight: 500;
+}
+
 @media all and (min-width: 1050px) {
   .booking {
     display: flex;
@@ -199,6 +208,13 @@
     line-height: 1.3rem;
     margin-top: -0.22rem;
     margin-left: 0.5rem;
+  }
+
+  .existing {
+    display: none;
+    color: #fc4a4a;
+    font-size: 0.85rem;
+    font-weight: 500;
   }
 }
 
