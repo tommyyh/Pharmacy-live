@@ -14,6 +14,11 @@ const getElement = (tag) => {
   const bookWorkplace = getElement('.booking__workplace');
   const bookForm = getElement('.booking__form');
 
+  if (window.location.pathname === '/booking/public/') {
+    bookWorkplace.style.display = 'none';
+    bookForm.style.display = 'initial';
+  }
+
   if (window.location.pathname === '/booking/workplace/') {
     const res = await axios.get('/booking/workplace-status/');
 
