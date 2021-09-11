@@ -116,10 +116,10 @@ def new_user(request):
 
 	# Check if user exists
 	matching_users1 = Public.objects.filter(
-		name=name, email=email, phone=phone, birth_date=birth
+		name=name, email=email, phone=phone
 	)
 	matching_users2 = Workplace.objects.filter(
-		name=name, email=email, phone=phone, birth_date=birth
+		name=name, email=email, phone=phone
 	)
 
 	if matching_users1 or matching_users2:
