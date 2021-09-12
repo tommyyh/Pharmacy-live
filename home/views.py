@@ -42,9 +42,9 @@ def today(request):
   # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}', pharmacy='Rimmington Pharmacy').values('name', 'phone', 'email').order_by('name').values('name').distinct()
   users = Public.objects.values('name').distinct().order_by('name') # .filter(date__startswith='2021-09-13').
   values = list(map(operator.itemgetter('name'), list(users)))
-  users2 = Public.objects.filter(name__in=values)
+  users2 = Public.objects.filter(name__in=values, date__startswith='2021-09-13').order_by('time')
 
-  pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users, 'count': users.count() })
+  pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users2, 'count': users.count() })
 
   return pdf
 
