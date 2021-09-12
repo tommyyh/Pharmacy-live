@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from django.contrib.auth.decorators import login_required
 from booking.models import Public, Workplace
 from django_xhtml2pdf.utils import generate_pdf
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
+import operator
 
 def home(request):
   success_msg = request.session['success'] if 'success' in request.session else ''
@@ -40,7 +41,9 @@ def today(request):
   res = HttpResponse(content_type='application/pdf')
   # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}', pharmacy='Rimmington Pharmacy').values('name', 'phone', 'email').order_by('name').values('name').distinct()
   users = Public.objects.filter(date__startswith='2021-09-13').values('name').order_by('name').distinct()
-  users2 = Public.objects.filter(name__in=users)
+  values = list(map(operator.itemgetter('name'), list(users)))
+  users2 = Public.objects.filter(name__in=values)
+
   pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users2, 'count': users.count() })
 
   return pdf
