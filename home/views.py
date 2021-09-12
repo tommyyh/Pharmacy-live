@@ -40,7 +40,7 @@ def today(request):
   res = HttpResponse(content_type='application/pdf')
   # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}', pharmacy='Rimmington Pharmacy').values('name', 'phone', 'email').order_by('name').values('name').distinct()
   users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}').values('name').order_by('name').distinct()
-  users2 = Public.objects.filter(users)
+  users2 = Public.objects.filter(name__in=users)
   pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users2, 'count': users.count() })
 
   return pdf
