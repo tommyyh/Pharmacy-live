@@ -137,7 +137,7 @@ def new_user(request):
 	request.session['birth'] = birth
 	request.session['postal'] = postal
 	request.session['nhs'] = nhs
-	request.session['location'] = request.data['location']
+	request.session['location'] = request.data['pathname']
 
 	return Response({ 'status': 200 })
 

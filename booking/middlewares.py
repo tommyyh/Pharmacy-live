@@ -11,13 +11,15 @@ class Verify():
     return response
 
   def process_view(self, request, view_func, view_args, view_kwargs):
-    name = request.session['name']
-    email = request.session['email']
-    phone = request.session['phone']
-    birth = request.session['birth']
-    postal = request.session['postal']
-
-    if not name or not email or not phone or not birth or not postal:
+    if 'name' not in request.session:
+      return redirect('booking-page')
+    elif 'email' not in request.session:
+      return redirect('booking-page')
+    elif 'phone' not in request.session:
+      return redirect('booking-page')
+    elif 'birth' not in request.session:
+      return redirect('booking-page')
+    elif 'postal' not in request.session:
       return redirect('booking-page')
     else:
       return
