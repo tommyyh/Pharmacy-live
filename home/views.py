@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from booking.models import Public, Workplace
 from django_xhtml2pdf.utils import generate_pdf
 from datetime import datetime, timedelta
-import operator
+import csv
 
 def home(request):
   success_msg = request.session['success'] if 'success' in request.session else ''
@@ -27,26 +27,37 @@ def remove_message(request):
 
 @login_required
 def today(request):
-  current_month = (datetime.now() + timedelta(days=1)).month
-  current_year = (datetime.now() + timedelta(days=1)).year
-  current_day = (datetime.now() + timedelta(days=1)).day
-  # f'{current_year}-{current_month}-{current_day}'
+#   current_month = (datetime.now() + timedelta(days=1)).month
+#   current_year = (datetime.now() + timedelta(days=1)).year
+#   current_day = (datetime.now() + timedelta(days=1)).day
+#   # f'{current_year}-{current_month}-{current_day}'
 
-  if len(str(current_day)) == 1:
-    current_day = f'0{current_day}'
+#   if len(str(current_day)) == 1:
+#     current_day = f'0{current_day}'
 
-  if len(str(current_month)) == 1:
-    current_month = f'0{current_month}'
+#   if len(str(current_month)) == 1:
+#     current_month = f'0{current_month}'
 
-  res = HttpResponse(content_type='application/pdf')
-  # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}', pharmacy='Rimmington Pharmacy').values('name', 'phone', 'email').order_by('name').values('name').distinct()
-  # users = Public.objects.filter(date__startswith='2021-09-13').values('name').distinct().order_by('name')
-  users = Public.objects.filter(date__startswith='2021-09-13').order_by('name')
- # .filter(date__startswith='2021-09-13').
+#   res = HttpResponse(content_type='application/pdf')
+#   # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}', pharmacy='Rimmington Pharmacy').values('name', 'phone', 'email').order_by('name').values('name').distinct()
+#   # users = Public.objects.filter(date__startswith='2021-09-13').values('name').distinct().order_by('name')
+#   users = Public.objects.filter(date__startswith='2021-09-13').order_by('time')
+#  # .filter(date__startswith='2021-09-13').
 
-  pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users, 'count': users.count() })
+#   pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users, 'count': users.count() })
 
-  return pdf
+#   return pdf
+  output = []
+  response = HttpResponse (content_type='text/csv')
+  writer = csv.writer(response)
+  query_set = Public.objects.filter(date__startswith='2021-09-13').order_by('time')
+  #Header
+  writer.writerow(['Name', 'Email', 'Phone', 'Time', 'Postal code', 'Nhs', 'Birth', 'Date'])
+  for user in query_set:
+    output.append([user.name, user.email, user.phone, user.time, user.postal_code, user.nhs_number, user.birth_date, user.date])
+  #CSV Data
+  writer.writerows(output)
+  return response
 
 @login_required
 def today_workplace(request):
