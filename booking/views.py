@@ -119,6 +119,7 @@ def new_user(request):
 	birth = request.data['birth']
 	postal = request.data['postal']
 	nhs = request.data['nhs']
+	pharmacy = request.data['pharmacy']
 
 	# Check if user exists
 	matching_users1 = Public.objects.filter(
@@ -137,6 +138,7 @@ def new_user(request):
 	request.session['birth'] = birth
 	request.session['postal'] = postal
 	request.session['nhs'] = nhs
+	request.session['pharmacy'] = pharmacy
 	request.session['location'] = request.data['pathname']
 
 	return Response({ 'status': 200 })
@@ -150,6 +152,7 @@ def book_appointment(request):
 	postal = request.session['postal']
 	nhs = request.session['nhs']
 	location = request.session['location']
+	pharmacy = request.session['pharmacy']
 	date = request.data['date']
 	time = request.data['time']
 
@@ -157,13 +160,13 @@ def book_appointment(request):
 	if location == 'public':
 		user = Public(
 			name=name, email=email, phone=phone, date=date, time=time, postal_code=postal,
-			nhs_number=nhs, birth_date=birth
+			nhs_number=nhs, birth_date=birth, pharmacy=pharmacy
 		)
 		user.save()
 	else:
 		user = Workplace(
 			name=name, email=email, phone=phone, date=date, time=time, postal_code=postal,
-			nhs_number=nhs, birth_date=birth
+			nhs_number=nhs, birth_date=birth, pharmacy=pharmacy
 		)
 		user.save()
 
@@ -175,6 +178,7 @@ def book_appointment(request):
 	request.session['postal'] = ''
 	request.session['nhs'] = ''
 	request.session['location'] = ''
+	request.session['pharmacy'] = ''
 
 	# Save success message
 	request.session['success'] = 'You Successfully Booked an Appointment'

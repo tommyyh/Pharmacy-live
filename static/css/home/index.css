@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26%;
+  width: 80%;
   height: 3rem;
   background: #23cf7f;
   position: fixed;
@@ -16,6 +16,7 @@
   top: 14vh;
   transition: ease 200ms;
   z-index: 21;
+  padding-left: 5%;
 }
 
 .success_message {
@@ -263,6 +264,7 @@
     right: 0;
     top: 14vh;
     transition: ease 200ms;
+    padding-left: 0;
     z-index: 21;
   }
 

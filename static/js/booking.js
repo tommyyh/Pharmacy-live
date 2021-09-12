@@ -61,6 +61,7 @@ const nhsLabel = getElement('#nhs_label');
 const button = getElement('.continue_button');
 const checkbox = getElement('#checkbox');
 const checkboxLabel = getElement('#checkbox_label');
+const select = getElement('#booking__select');
 
 if (window.innerWidth < 481) {
   birthInput.type = 'date';
@@ -319,6 +320,7 @@ const focusOutDate = (e) => {
       birth: birthInput.value,
       postal: postalInput.value,
       nhs: nhsInput.value,
+      pharmacy: select.value,
       pathname: path === '/booking/public/' ? 'public' : 'workplace',
     });
 

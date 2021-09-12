@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 119vh;
+  height: 124.3vh;
   background: #fff;
   border-radius: 0.3rem;
   margin-top: 18vh;
@@ -71,6 +71,23 @@
   transition: ease 300ms;
   font-weight: 300;
   min-width: 100%;
+}
+
+#booking__select {
+  width: 100%;
+  height: 3.2rem;
+  background: #f5f5f5;
+  color: #464646;
+  margin-top: 0.55rem;
+  font-weight: 100;
+  font-size: 0.9rem;
+  border: none;
+  padding: 0% 5% 0 5%;
+  transition: ease 300ms;
+  font-weight: 300;
+  min-width: 100%;
+  cursor: pointer;
+  outline: none;
 }
 
 #booking__date {
@@ -201,7 +218,7 @@
     flex-direction: column;
     align-items: center;
     width: 40%;
-    height: 105vh;
+    height: 115vh;
     background: #fff;
     border-radius: 0.3rem;
     margin-top: 18vh;
@@ -256,6 +273,23 @@
     padding: 4.1% 5% 0 5%;
     transition: ease 300ms;
     font-weight: 300;
+    min-width: initial;
+  }
+
+  #booking__select {
+    width: 100%;
+    cursor: pointer;
+    height: 3.2rem;
+    background: #f5f5f5;
+    color: #464646;
+    margin-top: 0.55rem;
+    font-weight: 100;
+    font-size: 0.9rem;
+    border: none;
+    padding: 0% 5% 0 5%;
+    transition: ease 300ms;
+    font-weight: 300;
+    outline: none;
     min-width: initial;
   }
 

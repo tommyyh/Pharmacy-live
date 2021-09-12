@@ -39,7 +39,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
   setTimeout(() => {
     if (successMsg) {
-      successMsg.style.right = '-26%';
+      successMsg.style.right = '-80%';
     }
   }, 5000);
 })();
