@@ -8,6 +8,34 @@ const getElement = (tag) => {
   return element;
 };
 
+const today = new Date();
+
+const tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+const nextWeek = new Date(today);
+nextWeek.setDate(nextWeek.getDate() + 8);
+
+const picker = new Pikaday({
+  field: document.getElementById('booking__date'),
+  format: 'YYYY-M-D',
+  toString(date, format) {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return `${year}-${month}-${day}`;
+  },
+  parse(dateString, format) {
+    const parts = dateString.split('-');
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1;
+    const year = parseInt(parts[2], 10);
+    return new Date(year, month, day);
+  },
+  minDate: tomorrow,
+  maxDate: nextWeek,
+});
+
 const times = [
   '9:00',
   '9:05',
