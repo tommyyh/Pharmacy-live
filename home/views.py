@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.contrib.auth.decorators import login_required
 from booking.models import Public, Workplace
 from django_xhtml2pdf.utils import generate_pdf
+from datetime import datetime, timedelta
 
 def home(request):
   success_msg = request.session['success'] if 'success' in request.session else ''
@@ -25,9 +26,19 @@ def remove_message(request):
 
 @login_required
 def today(request):
+  current_month = (datetime.now() + timedelta(days=1)).month
+  current_year = (datetime.now() + timedelta(days=1)).year
+  current_day = (datetime.now() + timedelta(days=1)).day
+
+  if len(str(current_day)) == 1:
+    current_day = f'0{current_day}'
+
+  if len(str(current_month)) == 1:
+    current_month = f'0{current_month}'
+
   res = HttpResponse(content_type='application/pdf')
-  users = Public.objects.all()
-  pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users })
+  users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}', pharmacy='Rimmington Pharmacy').order_by('time')
+  pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users, 'count': users.count() })
 
   return pdf
 
