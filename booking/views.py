@@ -183,28 +183,28 @@ def book_appointment(request):
 	# Save success message
 	request.session['success'] = 'You Successfully Booked an Appointment'
 
-	# Send email upon
-	body = f"Dear {name}, \n\nIt’s confirmed, we’ll see you on {date}! Thank you for booking your flu vaccination with Rimmington’s Pharmacy. You’ll find details of your reservation enclosed below. \n\nDate: {date} \nTime: {time} \n\nIf you need to get in touch, you can email or phone us directly. \n\n\nThanks again, \nRimmington’s Pharmacy"
+	# # Send email upon
+	# body = f"Dear {name}, \n\nIt’s confirmed, we’ll see you on {date}! Thank you for booking your flu vaccination with Rimmington’s Pharmacy. You’ll find details of your reservation enclosed below. \n\nDate: {date} \nTime: {time} \n\nIf you need to get in touch, you can email or phone us directly. \n\n\nThanks again, \nRimmington’s Pharmacy"
 
-	try:
-		email = EmailMessage(
-			'Flu Vaccination Confirmation with Rimmington’s Pharmacy - Invalid email',
-			body,
-			settings.EMAIL_HOST_USER,
-			[email],
-  	)
+	# try:
+	# 	email = EmailMessage(
+	# 		'Flu Vaccination Confirmation with Rimmington’s Pharmacy - Invalid email',
+	# 		body,
+	# 		settings.EMAIL_HOST_USER,
+	# 		[email],
+  # 	)
 
-		email.fail_silently = False
-		email.send()
-	except:
-		email = EmailMessage(
-			'Flu Vaccination Confirmation with Rimmington’s Pharmacy',
-			body,
-			settings.EMAIL_HOST_USER,
-			['info@rimmingtonspharmacy.com'],
-  	)
+	# 	email.fail_silently = False
+	# 	email.send()
+	# except:
+	# 	email = EmailMessage(
+	# 		'Flu Vaccination Confirmation with Rimmington’s Pharmacy',
+	# 		body,
+	# 		settings.EMAIL_HOST_USER,
+	# 		['info@rimmingtonspharmacy.com'],
+  # 	)
 
-		email.fail_silently = False
-		email.send()
+	# 	email.fail_silently = False
+	# 	email.send()
 
 	return Response({ 'status': 200 })
