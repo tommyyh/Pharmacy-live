@@ -16,7 +16,7 @@ SECRET_KEY = conf['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.rimmingtonspharmacy.net', '176.58.122.183', 'localhost']
+ALLOWED_HOSTS = ['www.rimmingtonspharmacy.net', 'rimmingtonspharmacy.net', '176.58.122.183', 'localhost']
 
 
 # Application definition
