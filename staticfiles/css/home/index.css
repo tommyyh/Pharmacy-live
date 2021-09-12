@@ -35,14 +35,18 @@
   padding: 20% 0 0 6%;
 }
 
-.hero h1 span {
-  display: block;
-}
-
 .hero h1 {
-  font-size: 1.6rem;
+  font-weight: 900;
+  font-size: 1.5rem;
   line-height: 2.6rem;
   color: #fff;
+}
+
+.hero h1 span {
+  display: inline-block;
+  font-weight: 10000;
+  text-decoration: underline;
+  color: var(--accent-color2);
 }
 
 .hero button {
@@ -138,19 +142,62 @@
 }
 
 .popup {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  align-items: center;
-  width: 100%;
-  height: 4.3rem;
-  background: var(--accent-color);
+  display: none;
+  flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
+  text-align: initial;
+  width: 90%;
+  height: 89vh;
+  background: #fff;
   position: fixed;
-  right: 0%;
-  top: -4.3rem;
-  padding: 0 5% 0 5%;
-  transition: 400ms;
-  z-index: 20;
+  right: initial;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 6% 6% 6% 6%;
+  overflow-y: scroll;
+  z-index: 50;
+}
+
+.popup_background {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  z-index: 40;
+  top: 0;
+  left: 0;
+  position: fixed;
+  opacity: 50%;
+}
+
+.popup__close {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 1.3rem;
+  color: var(--accent-color2);
+  cursor: pointer;
+}
+
+.popup__imgs {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup__imgs img {
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+}
+
+.popup__top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .cross {
@@ -166,28 +213,35 @@
 .cross::before {
   content: '';
   position: absolute;
-  width: 1rem;
+  width: 1.3rem;
   height: 0.13rem;
-  background: #fff;
+  background: #000;
   transform: rotate(-45deg);
 }
 
 .cross::after {
   content: '';
   position: absolute;
-  width: 1rem;
+  width: 1.3rem;
   height: 0.13rem;
-  background: #fff;
+  background: #000;
   transform: rotate(45deg);
 }
 
+.popup h3 {
+  font-size: 1.3rem;
+}
+
 .popup a {
-  color: #fff;
+  color: var(--accent-color2);
+  font-size: 0.875em;
   transition: 200ms;
+  margin-top: 0.1rem;
+  margin-bottom: 1.7rem;
 }
 
 .popup a:hover {
-  color: #f1f1f1;
+  color: var(--accent-color2);
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -225,17 +279,19 @@
     width: 100%;
     height: 100vh;
     background-image: url('../../images/vaccine-img.png');
-    padding: 8% 0 0 7%;
+    padding: 8% 20% 0 7%;
   }
 
   .hero h1 span {
-    display: block;
+    text-decoration: underline;
+    color: var(--accent-color2);
+    display: inline-block;
   }
 
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.35rem;
     color: #fff;
-    line-height: initial;
+    line-height: 3.98rem;
   }
 
   .hero button {
@@ -337,18 +393,62 @@
   }
 
   .popup {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center;
-    width: 27%;
-    height: 3.5rem;
-    background: var(--accent-color);
+    display: none;
+    flex-direction: column;
+    justify-content: initial;
+    align-items: initial;
+    text-align: initial;
+    width: 38%;
+    height: 85vh;
+    background: #fff;
     position: fixed;
-    right: -27%;
-    top: 14vh;
-    padding: 0 2% 0 2%;
-    transition: 400ms;
+    right: initial;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.4% 2% 1.4% 2%;
+    overflow-y: scroll;
+    z-index: 50;
+  }
+
+  .popup_background {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 40;
+    top: 0;
+    left: 0;
+    position: fixed;
+    opacity: 50%;
+  }
+
+  .popup__close {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent-color2);
+    margin-top: 0.77rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .popup__imgs {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .popup__imgs img {
+    width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+
+  .popup__top {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .cross {
@@ -364,27 +464,34 @@
   .cross::before {
     content: '';
     position: absolute;
-    width: 1rem;
+    width: 1.3rem;
     height: 0.13rem;
-    background: #fff;
+    background: #000;
     transform: rotate(-45deg);
   }
 
   .cross::after {
     content: '';
     position: absolute;
-    width: 1rem;
+    width: 1.3rem;
     height: 0.13rem;
-    background: #fff;
+    background: #000;
     transform: rotate(45deg);
   }
 
+  .popup h3 {
+    font-size: 1.55rem;
+  }
+
   .popup a {
-    color: #fff;
+    color: var(--accent-color2);
+    font-size: 0.87rem;
     transition: 200ms;
+    margin-top: 0.2rem;
+    margin-bottom: 1.7rem;
   }
 
   .popup a:hover {
-    color: #f1f1f1;
+    color: var(--accent-color2);
   }
 }

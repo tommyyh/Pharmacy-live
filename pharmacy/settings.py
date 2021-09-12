@@ -1,7 +1,7 @@
 import os
 import json
 
-with open ('./etc/config.json') as config_file:
+with open ('/etc/secret.json') as config_file:
     conf = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

@@ -8,15 +8,39 @@ const getElement = (tag) => {
   return element;
 };
 
+(async () => {
+  const bookTitle = getElement('.booking__title');
+  const bookCont = getElement('.booking__cont');
+  const bookWorkplace = getElement('.booking__workplace');
+  const bookForm = getElement('.booking__form');
+
+  if (window.location.pathname === '/booking/public/') {
+    bookWorkplace.style.display = 'none';
+    bookForm.style.display = 'initial';
+  }
+
+  if (window.location.pathname === '/booking/workplace/') {
+    const res = await axios.get('/booking/workplace-status/');
+
+    if (res.data.workplace_status === false) {
+      bookTitle.classList.add('booking__title_x');
+      bookCont.classList.add('booking__cont_x');
+    } else {
+      bookWorkplace.style.display = 'none';
+      bookForm.style.display = 'initial';
+    }
+  }
+})();
+
 const title = document.querySelector('.booking__title').querySelector('h1');
 const path = window.location.pathname;
 
 // Chnage headlines whether its for public or workplace
 if (path === '/booking/public/') {
   document.title = "Rimmington's • Public Booking";
-  title.innerHTML = 'Public Booking';
+  title.innerHTML = 'Flu Jab Booking - Public';
 } else if (path === '/booking/workplace/') {
-  title.innerHTML = 'Workplace Booking';
+  title.innerHTML = 'Flu Jab Booking - Workplace';
   document.title = "Rimmington's • Workplace Booking";
 }
 
@@ -212,12 +236,24 @@ const focusOutDate = (e) => {
     }
   });
 
+  checkbox.addEventListener('click', () => {
+    if (checkbox.checked) {
+      checkboxLabel.style.color = '#000';
+    }
+  });
+
   // Send message
   button.addEventListener('click', async () => {
+    button.innerHTML = 'Processing...';
+    button.disabled = true;
+
     if (!nameInput.value) {
       nameLabel.style.color = '#FF3C3C';
       nameLabel.innerHTML = 'This field is required';
       nameInput.style.border = '0.5px solid #FF3C3C';
+
+      button.innerHTML = 'Continue';
+      button.disabled = false;
 
       return;
     }
@@ -227,6 +263,9 @@ const focusOutDate = (e) => {
       emailLabel.innerHTML = 'This field is required';
       emailInput.style.border = '0.5px solid #FF3C3C';
 
+      button.innerHTML = 'Continue';
+      button.disabled = false;
+
       return;
     }
 
@@ -234,6 +273,9 @@ const focusOutDate = (e) => {
       phoneLabel.style.color = '#FF3C3C';
       phoneLabel.innerHTML = 'This field is required';
       phoneInput.style.border = '0.5px solid #FF3C3C';
+
+      button.innerHTML = 'Continue';
+      button.disabled = false;
 
       return;
     }
@@ -243,6 +285,9 @@ const focusOutDate = (e) => {
       birthLabel.innerHTML = 'This field is required';
       birthInput.style.border = '0.5px solid #FF3C3C';
 
+      button.innerHTML = 'Continue';
+      button.disabled = false;
+
       return;
     }
 
@@ -251,27 +296,18 @@ const focusOutDate = (e) => {
       postalLabel.innerHTML = 'This field is required';
       postalInput.style.border = '0.5px solid #FF3C3C';
 
-      return;
-    }
-
-    if (!nhsInput.value) {
-      nhsLabel.style.color = '#FF3C3C';
-      nhsLabel.innerHTML = 'This field is required';
-      nhsInput.style.border = '0.5px solid #FF3C3C';
+      button.innerHTML = 'Continue';
+      button.disabled = false;
 
       return;
     }
 
-    if (nhsInput.value.length !== 12) {
-      nhsLabel.style.color = '#FF3C3C';
-      nhsLabel.innerHTML = 'Please enter a valid NHS number';
-      nhsInput.style.border = '0.5px solid #FF3C3C';
-
-      return;
-    }
     if (!checkbox.checked) {
       checkboxLabel.style.color = '#FF3C3C';
       checkbox.style.border = '1px solid #FF3C3C';
+
+      button.innerHTML = 'Continue';
+      button.disabled = false;
 
       return;
     }
@@ -283,11 +319,31 @@ const focusOutDate = (e) => {
       birth: birthInput.value,
       postal: postalInput.value,
       nhs: nhsInput.value,
-      location: path === '/booking/public/' ? 'public' : 'workplace',
+      pathname: path === '/booking/public/' ? 'public' : 'workplace',
     });
 
+    if (res.data.status === 404) {
+      emailLabel.style.color = '#FF3C3C';
+      emailLabel.innerHTML = 'Enter a valid email address';
+      emailInput.style.border = '0.5px solid #FF3C3C';
+
+      button.innerHTML = 'Continue';
+      button.disabled = false;
+
+      return;
+    }
+
+    if (res.data.status === 402) {
+      const existing = document.querySelector('.existing');
+
+      existing.style.display = 'initial';
+
+      button.innerHTML = 'Continue';
+      button.disabled = false;
+    }
+
     if (res.data.status === 200) {
-      window.location.href = '/booking/date/';
+      window.location.href = '/booking/date';
     }
   });
 })();

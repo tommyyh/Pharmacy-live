@@ -12,7 +12,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
   const cross = document.querySelector('.cross');
   const close = document.querySelector('.popup__close');
 
-  const res = await axios.get('/pop-up-check/');
+  const res = await axios.get('pop-up-check/');
 
   if (res.data.pop_up === 'not') {
     popup.style.display = 'flex';
@@ -31,7 +31,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 })();
 
 (async () => {
-  await axios.get('/pop-up-read/');
+  await axios.get('pop-up-read/');
 })();
 
 (() => {
