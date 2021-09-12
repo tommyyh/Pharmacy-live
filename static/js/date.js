@@ -13,8 +13,10 @@ const today = new Date();
 const tomorrow = new Date(today);
 tomorrow.setDate(tomorrow.getDate() + 1);
 
+console.log(new Date())
+
 const nextWeek = new Date(today);
-nextWeek.setDate(nextWeek.getDate() + 8);
+nextWeek.setDate(nextWeek.getDate() + 7);
 
 const picker = new Pikaday({
   field: document.getElementById('booking__date'),
@@ -32,8 +34,8 @@ const picker = new Pikaday({
     const year = parseInt(parts[2], 10);
     return new Date(year, month, day);
   },
-  minDate: '2021-09-13',
-  maxDate: '2021-09-20',
+  minDate: new Date(),
+  maxDate: nextWeek,
 });
 
 const times = [
