@@ -6,16 +6,7 @@
   <div class="booking__form">
     <div class="booking__input">
       <label for="booking__date" id="date_label">Select a Date</label>
-      <input
-        placeholder="Select a Date"
-        id="booking__date"
-        type="text"
-        onfocus="(this.type='date')"
-        min="{{ current_date }}"
-        maxlength="4"
-        pattern="[1-9][0-9]{3}"
-        max="{{ current_date2 }}"
-      />
+      <input type="text" id="booking__date" placeholder="Select A Date" />
     </div>
 
     <h5 class="date_picker_error">Please fill out this field</h5>

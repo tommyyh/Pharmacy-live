@@ -184,7 +184,7 @@ def book_appointment(request):
 
 	try:
 		email = EmailMessage(
-			'Flu Vaccination Confirmation with Rimmington’s Pharmacy',
+			'Flu Vaccination Confirmation with Rimmington’s Pharmacy - Invalid email',
 			body,
 			settings.EMAIL_HOST_USER,
 			[email],
