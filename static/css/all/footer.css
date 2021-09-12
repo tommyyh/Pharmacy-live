@@ -120,10 +120,6 @@ footer h3 {
   font-weight: 500;
 }
 
-.nav__subtitle_d {
-  display: none;
-}
-
 @media all and (min-width: 1050px) {
   footer {
     display: flex;
