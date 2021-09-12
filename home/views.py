@@ -40,7 +40,7 @@ def today(request):
 
   res = HttpResponse(content_type='application/pdf')
   # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}', pharmacy='Rimmington Pharmacy').values('name', 'phone', 'email').order_by('name').values('name').distinct()
-  users = Public.objects.values('name').distinct() # .filter(date__startswith='2021-09-13').
+  users = Public.objects.values('name').distinct().order_by('names') # .filter(date__startswith='2021-09-13').
   values = list(map(operator.itemgetter('name'), list(users)))
   users2 = Public.objects.filter(name__in=values)
 
