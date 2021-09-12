@@ -1,7 +1,7 @@
 import os
 import json
 
-with open ('./etc/config.json') as config_file:
+with open ('/etc/secret.json') as config_file:
     conf = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -16,7 +16,7 @@ SECRET_KEY = conf['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.rimmingtonspharmacy.net', '176.58.122.183', 'localhost']
+ALLOWED_HOSTS = ['www.rimmingtonspharmacy.net', 'rimmingtonspharmacy.net', '176.58.122.183', 'localhost']
 
 
 # Application definition

@@ -6,27 +6,32 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
   await axios.get('/remove-message/');
 })();
 
-(() => {
+(async () => {
   const popup = document.querySelector('.popup');
+  const popupBack = document.querySelector('.popup_background');
   const cross = document.querySelector('.cross');
+  const close = document.querySelector('.popup__close');
 
-  if (window.innerWidth > 1024) {
-    cross.addEventListener('click', () => {
-      popup.style.right = '-27%';
-    });
+  const res = await axios.get('pop-up-check/');
 
-    setTimeout(() => {
-      popup.style.right = '0%';
-    }, 780);
-  } else {
-    cross.addEventListener('click', () => {
-      popup.style.top = '-4.3rem';
-    });
-
-    setTimeout(() => {
-      popup.style.top = '0%';
-    }, 780);
+  if (res.data.pop_up === 'not') {
+    popup.style.display = 'flex';
+    popupBack.style.display = 'initial';
   }
+
+  cross.addEventListener('click', () => {
+    popup.style.display = 'none';
+    popupBack.style.display = 'none';
+  });
+
+  close.addEventListener('click', () => {
+    popup.style.display = 'none';
+    popupBack.style.display = 'none';
+  });
+})();
+
+(async () => {
+  await axios.get('pop-up-read/');
 })();
 
 (() => {
