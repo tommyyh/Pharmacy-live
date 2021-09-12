@@ -32,8 +32,8 @@ const picker = new Pikaday({
     const year = parseInt(parts[2], 10);
     return new Date(year, month, day);
   },
-  minDate: tomorrow,
-  maxDate: nextWeek,
+  minDate: '2021-09-13',
+  maxDate: '2021-09-20',
 });
 
 const times = [
