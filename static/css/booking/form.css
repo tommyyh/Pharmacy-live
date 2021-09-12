@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 101vh;
+  height: 119vh;
   background: #fff;
   border-radius: 0.3rem;
   margin-top: 18vh;
@@ -181,6 +181,12 @@
   transform: rotate(-45deg);
 }
 
+.confirmation_msg {
+  font-size: 0.72rem;
+  color: #636363;
+  margin-top: 1.25rem;
+}
+
 @media all and (min-width: 1050px) {
   .booking {
     display: flex;
@@ -195,7 +201,7 @@
     flex-direction: column;
     align-items: center;
     width: 40%;
-    height: 98vh;
+    height: 105vh;
     background: #fff;
     border-radius: 0.3rem;
     margin-top: 18vh;
