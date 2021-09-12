@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from django.contrib.auth.decorators import login_required
 from booking.models import Public, Workplace
 from django_xhtml2pdf.utils import generate_pdf
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
 def home(request):
   success_msg = request.session['success'] if 'success' in request.session else ''
@@ -29,6 +29,7 @@ def today(request):
   current_month = (datetime.now() + timedelta(days=1)).month
   current_year = (datetime.now() + timedelta(days=1)).year
   current_day = (datetime.now() + timedelta(days=1)).day
+  # f'{current_year}-{current_month}-{current_day}'
 
   if len(str(current_day)) == 1:
     current_day = f'0{current_day}'
@@ -38,7 +39,7 @@ def today(request):
 
   res = HttpResponse(content_type='application/pdf')
   # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}', pharmacy='Rimmington Pharmacy').values('name', 'phone', 'email').order_by('name').values('name').distinct()
-  users = Public.objects.values('name').distinct()
+  users = Public.objects.filter(date__startswith=date.today(), pharmacy='Rimmington Pharmacy').values('name').distinct().order_by('name')
   users2 = users.values('name', 'phone', 'email', 'time', 'postal_code', 'nhs_number', 'birth_date', 'date', 'has_texted', 'pharmacy')
   pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users2, 'count': users.count() })
 
