@@ -14,7 +14,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = conf['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if conf.get('ENV') != 'D':
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ['www.rimmingtonspharmacy.net', 'rimmingtonspharmacy.net', '176.58.122.183', 'localhost']
 
@@ -140,7 +143,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if conf.get('ENV') != 'D':
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = conf.get('EMAIL_USER')
