@@ -162,6 +162,9 @@ const bookAppointment = getElement('#book_appointment');
 const datePickerSuccess = getElement('.date_picker_success');
 
 continueBooking.addEventListener('click', async () => {
+  continueBooking.disabled = true;
+  continueBooking.innerHTML = 'Processing...'
+
   dateInput.addEventListener('focusin', () => {
     datePickerErr.classList.remove('date_picker_error_on');
   });
@@ -169,12 +172,18 @@ continueBooking.addEventListener('click', async () => {
   if (!dateInput.value) {
     datePickerErr.classList.add('date_picker_error_on');
 
+    continueBooking.disabled = false;
+    continueBooking.innerHTML = 'Check Available Times'
+
     return;
   }
 
   const res = await axios.post('/booking/new-date/', {
     date: dateInput.value,
   });
+
+  continueBooking.disabled = false;
+  continueBooking.innerHTML = 'Check Available Times'
 
   const available_times = res.data.available_times;
 
