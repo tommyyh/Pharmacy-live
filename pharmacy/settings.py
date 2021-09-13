@@ -1,7 +1,7 @@
 import os
 import json
 
-with open ('./etc/secret.json') as config_file:
+with open ('/etc/secret.json') as config_file:
     conf = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -139,6 +139,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = conf.get('EMAIL_USER')
