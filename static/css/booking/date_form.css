@@ -115,6 +115,15 @@
   margin-bottom: -0.15rem;
 }
 
+.existing {
+  display: none;
+  color: #fc4a4a;
+  font-size: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: -1.5rem;
+  font-weight: 500;
+}
+
 @media all and (min-width: 1050px) {
   .booking {
     display: flex;
@@ -233,6 +242,13 @@
 
   #date_label {
     display: none;
+  }
+
+  .existing {
+    display: none;
+    color: #fc4a4a;
+    font-size: 0.85rem;
+    font-weight: 500;
   }
 }
 

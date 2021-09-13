@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'contact',
     'about',
     'rest_framework',
+    'mailer',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+CRONJOBS = [
+    '* * * * * (/home/tommy/pharmacy/env/bin/python3 /home/tommy/pharmacy/manage.py send_mail >> ~/cron_mail.log 2>&1)'
 ]
 
 WSGI_APPLICATION = 'pharmacy.wsgi.application'
@@ -123,6 +129,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+MAILER_EMAIL_THROTTLE = 75
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -140,4 +147,4 @@ EMAIL_HOST_USER = conf.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = conf.get('EMAIL_PASS')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "mailer.backend.DbBackend"

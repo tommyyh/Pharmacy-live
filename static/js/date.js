@@ -34,7 +34,7 @@ const picker = new Pikaday({
     const year = parseInt(parts[2], 10);
     return new Date(year, month, day);
   },
-  minDate: new Date(),
+  minDate: tomorrow,
   maxDate: nextWeek,
 });
 
@@ -224,12 +224,24 @@ continueBooking.addEventListener('click', async () => {
   });
 
   bookAppointment.addEventListener('click', async () => {
+    bookAppointment.disabled = true;
+    bookAppointment.innerHTML = 'Processing...'
+
     const res = await axios.post('/booking/book-appointment/', {
       date: dateInput.value,
       time: selectedTime,
     });
 
+    if (res.data.status === 402) {
+      document.querySelector('.existing').style.display = 'initial';
+      bookAppointment.disabled = false;
+      bookAppointment.innerHTML = 'Book Appointment'
+    }
+
     if (res.data.status === 200) {
+      bookAppointment.disabled = false;
+      bookAppointment.innerHTML = 'Book Appointment'
+
       window.location.href = '/';
     }
   });

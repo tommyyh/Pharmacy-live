@@ -5,8 +5,12 @@ from .models import Public, Workplace, AdminTask
 from datetime import datetime, timedelta
 from django.utils.decorators import decorator_from_middleware
 from .middlewares import Verify
-from django.core.mail import EmailMessage
 from django.conf import settings
+
+if "mailer" in settings.INSTALLED_APPS:
+    from mailer import send_mail
+else:
+    from django.core.mail import send_mail
 
 def booking(request):
 	name = request.session['name'] if 'name' in request.session else ''
@@ -156,6 +160,17 @@ def book_appointment(request):
 	date = request.data['date']
 	time = request.data['time']
 
+	# Check if user exists
+	matching_users1 = Public.objects.filter(
+		name=name, email=email, phone=phone, postal_code=postal
+	)
+	matching_users2 = Workplace.objects.filter(
+		name=name, email=email, phone=phone, postal_code=postal
+	)
+
+	if matching_users1 or matching_users2:
+		return Response({ 'status': 402 })
+
 	# Save to the db
 	if location == 'public':
 		user = Public(
@@ -171,40 +186,29 @@ def book_appointment(request):
 		user.save()
 
 	# Clear session
-	request.session['name'] = ''
-	request.session['email'] = ''
-	request.session['phone'] = ''
-	request.session['birth'] = ''
-	request.session['postal'] = ''
-	request.session['nhs'] = ''
-	request.session['location'] = ''
-	request.session['pharmacy'] = ''
+	# request.session['name'] = ''
+	# request.session['email'] = ''
+	# request.session['phone'] = ''
+	# request.session['birth'] = ''
+	# request.session['postal'] = ''
+	# request.session['nhs'] = ''
+	# request.session['location'] = ''
+	# request.session['pharmacy'] = ''
 
 	# Save success message
 	request.session['success'] = 'You Successfully Booked an Appointment'
 
-	# # Send email upon
-	# body = f"Dear {name}, \n\nIt’s confirmed, we’ll see you on {date}! Thank you for booking your flu vaccination with Rimmington’s Pharmacy. You’ll find details of your reservation enclosed below. \n\nDate: {date} \nTime: {time} \n\nIf you need to get in touch, you can email or phone us directly. \n\n\nThanks again, \nRimmington’s Pharmacy"
+	# Send email
+	body = f"Dear {name}, \n\nIt’s confirmed, we’ll see you on {date}! Thank you for booking your flu vaccination with Rimmington’s Pharmacy. You’ll find details of your reservation enclosed below. \n\nDate: {date} \nTime: {time} \n\nIf you need to get in touch, you can email or phone us directly. \n\n\nThanks again, \nRimmington’s Pharmacy"
 
-	# try:
-	# 	email = EmailMessage(
-	# 		'Flu Vaccination Confirmation with Rimmington’s Pharmacy - Invalid email',
-	# 		body,
-	# 		settings.EMAIL_HOST_USER,
-	# 		[email],
-  # 	)
-
-	# 	email.fail_silently = False
-	# 	email.send()
-	# except:
-	# 	email = EmailMessage(
-	# 		'Flu Vaccination Confirmation with Rimmington’s Pharmacy',
-	# 		body,
-	# 		settings.EMAIL_HOST_USER,
-	# 		['info@rimmingtonspharmacy.com'],
-  # 	)
-
-	# 	email.fail_silently = False
-	# 	email.send()
+	try:
+		send_mail(
+			'Flu Vaccination Confirmation with Rimmington’s Pharmacy',
+			body,
+			settings.EMAIL_HOST_USER,
+			[email],
+  	)
+	except:
+		return Response({ 'status': 400 })
 
 	return Response({ 'status': 200 })
