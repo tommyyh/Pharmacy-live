@@ -186,14 +186,14 @@ def book_appointment(request):
 		user.save()
 
 	# Clear session
-	# request.session['name'] = ''
-	# request.session['email'] = ''
-	# request.session['phone'] = ''
-	# request.session['birth'] = ''
-	# request.session['postal'] = ''
-	# request.session['nhs'] = ''
-	# request.session['location'] = ''
-	# request.session['pharmacy'] = ''
+	request.session['name'] = ''
+	request.session['email'] = ''
+	request.session['phone'] = ''
+	request.session['birth'] = ''
+	request.session['postal'] = ''
+	request.session['nhs'] = ''
+	request.session['location'] = ''
+	request.session['pharmacy'] = ''
 
 	# Save success message
 	request.session['success'] = 'You Successfully Booked an Appointment'
@@ -209,6 +209,6 @@ def book_appointment(request):
 			[email],
   	)
 	except:
-		return Response({ 'status': 400 })
+		return Response({ 'status': 200 })
 
 	return Response({ 'status': 200 })
