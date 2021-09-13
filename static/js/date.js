@@ -13,10 +13,8 @@ const today = new Date();
 const tomorrow = new Date(today);
 tomorrow.setDate(tomorrow.getDate() + 1);
 
-console.log(new Date())
-
 const nextWeek = new Date(today);
-nextWeek.setDate(nextWeek.getDate() + 7);
+nextWeek.setDate(nextWeek.getDate() + 8);
 
 const picker = new Pikaday({
   field: document.getElementById('booking__date'),
