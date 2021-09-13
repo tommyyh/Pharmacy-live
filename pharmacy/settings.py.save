@@ -1,7 +1,7 @@
 import os
 import json
 
-with open ('/etc/secret.json') as config_file:
+with open ('./etc/secret.json') as config_file:
     conf = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -14,10 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = conf['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if conf.get('ENV') != 'D':
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.rimmingtonspharmacy.net', 'rimmingtonspharmacy.net', '176.58.122.183', 'localhost']
 
@@ -132,7 +129,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-MAILER_EMAIL_THROTTLE = 90
+MAILER_EMAIL_THROTTLE = 82
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -143,8 +140,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-if conf.get('ENV') != 'D':
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = conf.get('EMAIL_USER')
