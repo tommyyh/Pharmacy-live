@@ -47,11 +47,11 @@ def today(request):
   # pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users, 'count': users.count() })
 
   # return pdf
-  
+
   output = []
   response = HttpResponse (content_type='text/csv')
   writer = csv.writer(response)
-  query_set = Public.objects.filter(date__startswith='2021-09-13').order_by('time')
+  query_set = Public.objects.filter(date__startswith='2021-09-14').order_by('time')
   #Header
   writer.writerow(['Name', 'Email', 'Phone', 'Time', 'Postal code', 'Nhs', 'Birth', 'Date'])
   for user in query_set:
