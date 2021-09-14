@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 103.2vh;
+  height: 89vh;
   background: #fff;
   border-radius: 0.3rem;
   margin-top: 18vh;
@@ -138,7 +138,7 @@
     flex-direction: column;
     align-items: center;
     width: 40%;
-    height: 108.5vh;
+    height: 85vh;
     background: #fff;
     border-radius: 0.3rem;
     margin-top: 18vh;
@@ -254,6 +254,6 @@
 
 @media all and (min-width: 768px) and (max-width: 1024.1px) {
   .booking__cont {
-    height: 101.5vh;
+    height: 95vh;
   }
 }

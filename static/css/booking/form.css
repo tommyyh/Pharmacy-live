@@ -400,7 +400,7 @@
 
 @media all and (min-width: 768px) and (max-width: 1024.1px) {
   .booking__cont {
-    height: 105vh;
+    height: 120vh;
   }
 
   .booking__title {

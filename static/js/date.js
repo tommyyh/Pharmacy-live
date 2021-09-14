@@ -154,34 +154,15 @@ datePicker.innerHTML = times
 
 // Check for available times
 const dateInput = getElement('#booking__date');
-const continueBooking = getElement('.continue_button');
 const datePickerErr = getElement('.date_picker_error');
 const bookAppointment = getElement('#book_appointment');
 const datePickerSuccess = getElement('.date_picker_success');
 
-continueBooking.addEventListener('click', async () => {
-  continueBooking.disabled = true;
-  continueBooking.innerHTML = 'Processing...'
-
-  dateInput.addEventListener('focusin', () => {
-    datePickerErr.classList.remove('date_picker_error_on');
-  });
-
-  if (!dateInput.value) {
-    datePickerErr.classList.add('date_picker_error_on');
-
-    continueBooking.disabled = false;
-    continueBooking.innerHTML = 'Check Available Times'
-
-    return;
-  }
-
+dateInput.addEventListener('change', async () => {
+  console.log(dateInput.value)
   const res = await axios.post('/booking/new-date/', {
     date: dateInput.value,
   });
-
-  continueBooking.disabled = false;
-  continueBooking.innerHTML = 'Check Available Times'
 
   const available_times = res.data.available_times;
 
