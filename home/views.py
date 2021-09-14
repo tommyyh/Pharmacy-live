@@ -27,10 +27,10 @@ def remove_message(request):
 
 @login_required
 def today(request):
-  current_month = (datetime.now() + timedelta(days=1)).month
-  current_year = (datetime.now() + timedelta(days=1)).year
-  current_day = (datetime.now() + timedelta(days=1)).day
-  # f'{current_year}-{current_month}-{current_day}'
+  # current_month = (datetime.now() + timedelta(days=1)).month
+  # current_year = (datetime.now() + timedelta(days=1)).year
+  # current_day = (datetime.now() + timedelta(days=1)).day
+  # # f'{current_year}-{current_month}-{current_day}'
 
   # if len(str(current_day)) == 1:
   #   current_day = f'0{current_day}'
@@ -38,8 +38,8 @@ def today(request):
   # if len(str(current_month)) == 1:
   #   current_month = f'0{current_month}'
 
-  # res = HttpResponse(content_type='application/pdf')
-  # # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}').values('name').distinct().order_by('name')
+  # res = HttpResponse(content_type='application/pdf') # f'{current_year}-{current_month}-{current_day}'
+  # # users = Public.objects.filter(date__startswith='2021-09-14').values('name').distinct().order_by('name')
   # users = Public.objects.filter(date__startswith='2021-09-14').values('name', 'email', 'phone', 'time', 'postal_code', 'nhs_number', 'birth_date', 'date').distinct().order_by('time')
   # # users = Public.objects.filter(date__startswith='2021-09-14').order_by('time')
   # # .filter(date__startswith='2021-09-13').
@@ -51,7 +51,7 @@ def today(request):
   output = []
   response = HttpResponse (content_type='text/csv')
   writer = csv.writer(response)
-  query_set = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}').order_by('time')
+  query_set = Public.objects.filter(date__startswith='2021-09-15').order_by('time')
   #Header
   writer.writerow(['Name', 'Email', 'Phone', 'Time', 'Postal code', 'Nhs', 'Birth', 'Date'])
   for user in query_set:

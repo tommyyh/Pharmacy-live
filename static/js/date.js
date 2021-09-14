@@ -11,7 +11,7 @@ const getElement = (tag) => {
 const today = new Date();
 
 const tomorrow = new Date(today);
-tomorrow.setDate(tomorrow.getDate() + 2);
+tomorrow.setDate(tomorrow.getDate() + 1);
 
 const nextWeek = new Date(today);
 nextWeek.setDate(nextWeek.getDate() + 8);
