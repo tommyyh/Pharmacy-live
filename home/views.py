@@ -39,8 +39,8 @@ def today(request):
     current_month = f'0{current_month}'
 
   res = HttpResponse(content_type='application/pdf') # f'{current_year}-{current_month}-{current_day}'
-  users = Public.objects.filter(date__startswith='2021-09-14').values('name').distinct().order_by('name')
-  # users = Public.objects.filter(date__startswith='2021-09-14').values('name', 'email', 'phone', 'time', 'postal_code', 'nhs_number', 'birth_date', 'date').distinct().order_by('time')
+  # users = Public.objects.filter(date__startswith='2021-09-14').values('name').distinct().order_by('name')
+  users = Public.objects.filter(date__startswith='2021-09-14').values('name', 'email', 'phone', 'time', 'postal_code', 'nhs_number', 'birth_date', 'date').distinct().order_by('time')
   # users = Public.objects.filter(date__startswith='2021-09-14').order_by('time')
   # .filter(date__startswith='2021-09-13').
 
