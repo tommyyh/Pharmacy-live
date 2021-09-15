@@ -270,6 +270,28 @@ const focusOutDate = (e) => {
       return;
     }
 
+    if (/(@[A-Za-z])\w+/.test(emailInput.value) == false) {
+      emailLabel.style.color = '#FF3C3C';
+      emailLabel.innerHTML = 'Please enter a valid email';
+      emailInput.style.border = '0.5px solid #FF3C3C';
+
+      button.innerHTML = 'Continue';
+      button.disabled = false;
+
+      return;
+    }
+
+    if (/\s/.test(emailInput.value) == true) {
+      emailLabel.style.color = '#FF3C3C';
+      emailLabel.innerHTML = 'Please enter a valid email';
+      emailInput.style.border = '0.5px solid #FF3C3C';
+
+      button.innerHTML = 'Continue';
+      button.disabled = false;
+
+      return;
+    }
+
     if (!phoneInput.value) {
       phoneLabel.style.color = '#FF3C3C';
       phoneLabel.innerHTML = 'This field is required';
