@@ -51,7 +51,7 @@ def today(request):
   output = []
   response = HttpResponse (content_type='text/csv')
   writer = csv.writer(response)
-  query_set = Public.objects.filter(date__startswith='2021-09-18').order_by('time')
+  query_set = Public.objects.filter(date__startswith='2021-09-18').values('name', 'email', 'phone', 'time', 'postal_code', 'nhs_number', 'birth_date', 'date').distinct().order_by('time')
   #Header
   writer.writerow(['Name', 'Email', 'Phone', 'Time', 'Postal code', 'Nhs', 'Birth', 'Date'])
   for user in query_set:
