@@ -126,12 +126,8 @@ def new_user(request):
 	pharmacy = request.data['pharmacy']
 
 	# Check if user exists
-	matching_users1 = Public.objects.filter(
-		name=name, email=email, phone=phone, postal_code=postal
-	)
-	matching_users2 = Workplace.objects.filter(
-		name=name, email=email, phone=phone, postal_code=postal
-	)
+	matching_users1 = Public.objects.filter(email=email)
+	matching_users2 = Workplace.objects.filter(email=email)
 
 	if matching_users1 or matching_users2:
 		return Response({ 'status': 402 })
@@ -161,12 +157,8 @@ def book_appointment(request):
 	time = request.data['time']
 
 	# Check if user exists
-	matching_users1 = Public.objects.filter(
-		name=name, email=email, phone=phone, postal_code=postal
-	)
-	matching_users2 = Workplace.objects.filter(
-		name=name, email=email, phone=phone, postal_code=postal
-	)
+	matching_users1 = Public.objects.filter(email=email)
+	matching_users2 = Workplace.objects.filter(email=email)
 
 	if matching_users1 or matching_users2:
 		return Response({ 'status': 402 })
