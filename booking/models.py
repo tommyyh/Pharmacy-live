@@ -4,7 +4,7 @@ class Public(models.Model):
 	name = models.CharField(max_length=255)
 	email = models.CharField(max_length=255)
 	phone = models.CharField(max_length=255)
-	time = models.CharField(max_length=255, null=True)
+	time = models.TimeField(max_length=255, null=True)
 	postal_code = models.CharField(max_length=100, null=True)
 	nhs_number = models.CharField(max_length=255, null=True)
 	birth_date = models.DateField(null=True)
