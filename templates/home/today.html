@@ -5,13 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tomorrow's Report - Public</title>
+
+    <style>
+      table {
+        table-layout: auto;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 4px 4px 2px;
+        font-size: 1.1rem;
+      }
+    </style>
   </head>
   <body style="font-family: 'Poppins', sans-serif">
     <h1 style="font-size: 32px">Today's Report - Public ({{ count }})</h1>
-    {% for x in users %}
-    <p style="font-size: 14.5px; margin-top: -100px">
-      {{ x.name }} (Email: {{ x.email }}, Phone: {{ x.phone }}, Postal: {{ x.postal_code }}, NHS: {{ x.nhs_number }}, Birth: {{ x.birth_date }}) - {{ x.date }}: {{ x.time }}
-    </p>
-    {% endfor %}
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Birth</th>
+        <th>Day</th>
+        <th>Time</th>
+      </tr>
+
+      {% for x in users %}
+      <tr>
+        <td>{{ x.name }}</td>
+        <td>{{ x.birth_date }}</td>
+        <td>{{ x.date }}</td>
+        <td>{{ x.time }}</td>
+      </tr>
+      {% endfor %}
+    </table>
   </body>
 </html>
