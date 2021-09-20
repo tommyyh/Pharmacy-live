@@ -40,7 +40,7 @@ def today(request):
   res = HttpResponse(content_type='application/pdf')
   users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}').values('name', 'email', 'phone', 'time', 'postal_code', 'nhs_number', 'birth_date', 'date').distinct().order_by('time')
 
-  pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users, 'count': users.count() })
+  pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users, 'count': users.count(), 'today': f'{current_year}-{current_month}-{current_day}' })
 
   return pdf
 

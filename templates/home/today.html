@@ -22,13 +22,13 @@
     </style>
   </head>
   <body style="font-family: 'Poppins', sans-serif">
-    <h1 style="font-size: 32px">Today's Report - Public ({{ count }})</h1>
+    <h1 style="font-size: 28px">Today's Report - Public ({{ count }}) - {{ today }}</h1>
 
     <table>
       <tr>
         <th>Name</th>
         <th>Birth</th>
-        <th>Day</th>
+        <th>Postal Code</th>
         <th>Time</th>
       </tr>
 
@@ -36,7 +36,7 @@
       <tr>
         <td>{{ x.name }}</td>
         <td>{{ x.birth_date }}</td>
-        <td>{{ x.date }}</td>
+        <td>{{ x.postal_code }}</td>
         <td>{{ x.time }}</td>
       </tr>
       {% endfor %}
