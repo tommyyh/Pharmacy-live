@@ -25,7 +25,6 @@ def remove_message(request):
 
   return Response({ 'status': 200 })
 
-@login_required
 def today(request):
   current_month = datetime.now().month
   current_year = datetime.now().year
@@ -38,7 +37,8 @@ def today(request):
     current_month = f'0{current_month}'
 
   res = HttpResponse(content_type='application/pdf')
-  users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}').values('name', 'email', 'phone', 'time', 'postal_code', 'nhs_number', 'birth_date', 'date').distinct().order_by('time')
+  users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}').order_by('time')
+  # users = Public.objects.filter(date__startswith=f'{current_year}-{current_month}-{current_day}').values('name', 'email', 'phone', 'time', 'postal_code', 'nhs_number', 'birth_date', 'date').distinct().order_by('time')
 
   pdf = generate_pdf('home/today.html', file_object=res, context={ 'users': users, 'count': users.count() })
 
