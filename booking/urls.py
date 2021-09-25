@@ -9,5 +9,6 @@ urlpatterns = [
     path('new-date/', views.new_date, name='new-date'),
     path('new-user/', views.new_user, name='new-user'),
     path('book-appointment/', views.book_appointment, name='book-appointment'),
-    path('workplace-status/', views.workplace_status, name='workplace-status')
+    path('workplace-status/', views.workplace_status, name='workplace-status'),
+    path('manage/<str:group>/<int:code>/', views.change, name='booking-change'),
 ]

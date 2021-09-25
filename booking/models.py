@@ -11,6 +11,7 @@ class Public(models.Model):
 	date = models.DateField()
 	has_texted = models.BooleanField(default=False)
 	pharmacy = models.CharField(max_length=255, null=True)
+	number = models.IntegerField(null=True)
 
 	def __str__(self):
 		return f'{self.name}: {self.date} - {self.time}'
@@ -25,6 +26,8 @@ class Workplace(models.Model):
 	birth_date = models.DateField(null=True)
 	date = models.DateField()
 	has_texted = models.BooleanField(default=False)
+	pharmacy = models.CharField(max_length=255, null=True)
+	number = models.IntegerField(null=True)
 
 	def __str__(self):
 		return f'{self.name}: {self.date} - {self.time}'

@@ -33,7 +33,6 @@ const picker = new Pikaday({
     return new Date(year, month, day);
   },
   minDate: tomorrow,
-  maxDate: nextWeek,
 });
 
 const times = [
@@ -157,9 +156,9 @@ const dateInput = getElement('#booking__date');
 const datePickerErr = getElement('.date_picker_error');
 const bookAppointment = getElement('#book_appointment');
 const datePickerSuccess = getElement('.date_picker_success');
+let selectedTime;
 
 dateInput.addEventListener('change', async () => {
-  console.log(dateInput.value)
   const res = await axios.post('/booking/new-date/', {
     date: dateInput.value,
   });
@@ -183,7 +182,6 @@ dateInput.addEventListener('change', async () => {
 
   // Add event listener on time clicks
   const timeItems = document.querySelectorAll('.date_picker_item');
-  let selectedTime;
 
   timeItems.forEach((timeItem) => {
     timeItem.addEventListener('click', (e) => {
@@ -210,27 +208,27 @@ dateInput.addEventListener('change', async () => {
       bookAppointment.innerHTML = 'Book appointment';
     });
   });
+});
 
-  bookAppointment.addEventListener('click', async () => {
-    bookAppointment.disabled = true;
-    bookAppointment.innerHTML = 'Processing...'
+bookAppointment.addEventListener('click', async () => {
+  bookAppointment.disabled = true;
+  bookAppointment.innerHTML = 'Processing...';
 
-    const res = await axios.post('/booking/book-appointment/', {
-      date: dateInput.value,
-      time: selectedTime,
-    });
-
-    if (res.data.status === 402) {
-      document.querySelector('.existing').style.display = 'initial';
-      bookAppointment.disabled = false;
-      bookAppointment.innerHTML = 'Book Appointment'
-    }
-
-    if (res.data.status === 200) {
-      bookAppointment.disabled = false;
-      bookAppointment.innerHTML = 'Book Appointment'
-
-      window.location.href = '/';
-    }
+  const res = await axios.post('/booking/book-appointment/', {
+    date: dateInput.value,
+    time: selectedTime,
   });
+
+  if (res.data.status === 402) {
+    document.querySelector('.existing').style.display = 'initial';
+    bookAppointment.disabled = false;
+    bookAppointment.innerHTML = 'Book Appointment';
+  }
+
+  if (res.data.status === 200) {
+    bookAppointment.disabled = false;
+    bookAppointment.innerHTML = 'Book Appointment';
+
+    window.location.href = '/';
+  }
 });
