@@ -1,7 +1,0 @@
-@import url('../all/resets.css');
-@import url('../all/nav.css');
-@import url('./form.css');
-
-.change {
-  padding: 7rem 7% 0 7%;
-}
