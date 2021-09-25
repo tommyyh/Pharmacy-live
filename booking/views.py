@@ -125,12 +125,12 @@ def new_user(request):
 	nhs = request.data['nhs']
 	pharmacy = request.data['pharmacy']
 
-	# # Check if user exists
-	# matching_users1 = Public.objects.filter(email=email)
-	# matching_users2 = Workplace.objects.filter(email=email)
+	# Check if user exists
+	matching_users1 = Public.objects.filter(email=email)
+	matching_users2 = Workplace.objects.filter(email=email)
 
-	# if matching_users1 or matching_users2:
-	# 	return Response({ 'status': 402 })
+	if matching_users1 or matching_users2:
+		return Response({ 'status': 402 })
 
 	request.session['name'] = name
 	request.session['email'] = email
