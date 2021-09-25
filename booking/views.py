@@ -4,9 +4,8 @@ from rest_framework.decorators import api_view
 from .models import Public, Workplace, AdminTask
 from datetime import datetime, timedelta
 from django.utils.decorators import decorator_from_middleware
-from .middlewares import Verify, Manage
+from .middlewares import Verify
 from django.conf import settings
-import random
 
 if "mailer" in settings.INSTALLED_APPS:
     from mailer import send_mail
@@ -126,12 +125,12 @@ def new_user(request):
 	nhs = request.data['nhs']
 	pharmacy = request.data['pharmacy']
 
-	# Check if user exists
-	matching_users1 = Public.objects.filter(email=email)
-	matching_users2 = Workplace.objects.filter(email=email)
+	# # Check if user exists
+	# matching_users1 = Public.objects.filter(email=email)
+	# matching_users2 = Workplace.objects.filter(email=email)
 
-	if matching_users1 or matching_users2:
-		return Response({ 'status': 402 })
+	# if matching_users1 or matching_users2:
+	# 	return Response({ 'status': 402 })
 
 	request.session['name'] = name
 	request.session['email'] = email
