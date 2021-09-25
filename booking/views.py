@@ -207,6 +207,7 @@ def book_appointment(request):
 
 	return Response({ 'status': 200 })
 
+# Manage appointment
 @decorator_from_middleware(Manage)
 def change(request, group, code):
 	model = None
