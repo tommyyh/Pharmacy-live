@@ -1,11 +1,13 @@
+from booking.serializers import PublicSerializer, Workplace, WorkplaceSerializer
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Public, Workplace, AdminTask
 from datetime import datetime, timedelta
 from django.utils.decorators import decorator_from_middleware
-from .middlewares import Verify
+from .middlewares import Verify, Manage
 from django.conf import settings
+import random
 
 if "mailer" in settings.INSTALLED_APPS:
     from mailer import send_mail
@@ -155,6 +157,7 @@ def book_appointment(request):
 	pharmacy = request.session['pharmacy']
 	date = request.data['date']
 	time = request.data['time']
+	random_num = random.randint(10000000, 99999999)
 
 	# Check if user exists
 	matching_users1 = Public.objects.filter(email=email)
@@ -167,13 +170,13 @@ def book_appointment(request):
 	if location == 'public':
 		user = Public(
 			name=name, email=email, phone=phone, date=date, time=time, postal_code=postal,
-			nhs_number=nhs, birth_date=birth, pharmacy=pharmacy
+			nhs_number=nhs, birth_date=birth, pharmacy=pharmacy, number=random_num
 		)
 		user.save()
 	else:
 		user = Workplace(
 			name=name, email=email, phone=phone, date=date, time=time, postal_code=postal,
-			nhs_number=nhs, birth_date=birth, pharmacy=pharmacy
+			nhs_number=nhs, birth_date=birth, pharmacy=pharmacy, number=random_num
 		)
 		user.save()
 
@@ -191,7 +194,7 @@ def book_appointment(request):
 	request.session['success'] = 'You Successfully Booked an Appointment'
 
 	# Send email
-	body = f"Dear {name}, \n\nIt’s confirmed, we’ll see you on {date}! Thank you for booking your flu vaccination with Rimmington’s Pharmacy. You’ll find details of your reservation enclosed below. \n\nDate: {date} \nTime: {time} \nLocation: 9 Bridge St, Bradford BD1 1RX, UK \n\nIf you need to get in touch, you can email or phone us directly. \n\n\nThanks again, \nRimmington’s Pharmacy"
+	body = f"Dear {name}, \n\nIt’s confirmed, we’ll see you on {date}! Thank you for booking your flu vaccination with Rimmington’s Pharmacy. You’ll find details of your reservation enclosed below. \n\nDate: {date} \nTime: {time} \nLocation: 9 Bridge St, Bradford BD1 1RX, UK \n\nTo cancel or change your appointment's time go to https://www.rimmingtonspharmacy.net/booking/manage/ and use the code: {random_num}\nIf you need to get in touch, you can email or phone us directly. \n\n\nThanks again, \nRimmington’s Pharmacy"
 
 	try:
 		send_mail(
@@ -202,5 +205,62 @@ def book_appointment(request):
   	)
 	except:
 		return Response({ 'status': 200 })
+
+	return Response({ 'status': 200 })
+
+# Manage appointment
+def change(request):
+	return render(request, 'booking/change.html')
+
+@api_view(['POST'])
+def check_code(request):
+	email = request.data['email']
+	code = request.data['code']
+	group = request.data['group']
+	model = None
+
+	if group == 'public':
+		try:
+			raw_model = Public.objects.get(number=code, email=email)
+			serializer = PublicSerializer(raw_model)
+			model = serializer.data
+		except:
+			return Response({ 'status': 404 })
+	elif group == 'workplace':
+		try:
+			raw_model = Workplace.objects.get(number=code, email=email)
+			serializer = WorkplaceSerializer(raw_model)
+			model = serializer.data
+		except:
+			return Response({ 'status': 404 })
+
+	request.session['saved_id'] = model['id']
+	request.session['saved_group'] = group
+
+	return Response({ 'status': 200, 'user': model })
+
+@api_view(['POST'])
+def save_changes(request):
+	date = request.data['date']
+	time = request.data['time']
+	id = request.session['saved_id']
+	group = request.session['saved_group']
+
+	if group == 'public':
+		user = Public.objects.get(id=id)
+
+		# Update user
+		user.date = date
+		user.time = time
+
+		user.save()
+	elif group == 'workplace':
+		user = Workplace.objects.get(id=id)
+
+		# Update user
+		user.date = date
+		user.time = time
+		
+		user.save()
 
 	return Response({ 'status': 200 })

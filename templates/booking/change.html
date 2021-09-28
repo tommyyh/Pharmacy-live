@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static '/images/svg/rimmingtons.ico' %}"
+      type="image/x-icon"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+      defer
+    ></script>
+    <script src="{% static '/js/change.js' %}" defer></script>
+    <script src="{% static '/js/nav.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static '/css/booking/change.css' %}" />
+    <title>Rimmington Pharmacy • Manage Appointment</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>{% include 'all/nav.html' %}</header>
+
+      <main class="change">
+        <h1>Manage Appointment</h1>
+
+        <div class="change_form">
+          <div class="change_input">
+            <input
+              type="email"
+              id="change_email"
+              name="email"
+              placeholder="Email Address"
+              value="tommyyhoangg@gmail.com"
+            />
+          </div>
+
+          <div class="change_input_2">
+            <input
+              type="number"
+              id="change_code"
+              name="code"
+              placeholder="Verification Code"
+              min="0"
+              oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+              value="63366691"
+            />
+
+            <select name="group" id="change_group">
+              <option value="public">Public</option>
+              <option value="workplace">Workplace</option>
+            </select>
+          </div>
+
+          <p class="change_error">Please enter a valid email address</p>
+
+          <div>
+            <button class="change_submit">Submit</button>
+          </div>
+        </div>
+      </main>
+
+      <section class="manage">
+        <div class="manage_input">
+          <div>
+            <label for="manage_date">Date</label>
+          </div>
+          <input
+            type="text"
+            id="manage_date"
+            placeholder="Select A Date"
+            autocomplete="off"
+          />
+        </div>
+
+        <h5 class="date_picker_success">Scroll down and pick a time</h5>
+
+        <div class="date_picker"></div>
+        <button id="book_appointment" disabled>Pick a Date First</button>
+      </section>
+
+      <footer>{% include 'all/footer.html' %}</footer>
+    </div>
+  </body>
+</html>
