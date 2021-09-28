@@ -263,4 +263,7 @@ def save_changes(request):
 		
 		user.save()
 
+	# Save success message
+	request.session['success'] = 'You Successfully Changed Your Appointment'
+
 	return Response({ 'status': 200 })
