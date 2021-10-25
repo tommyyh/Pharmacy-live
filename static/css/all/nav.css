@@ -30,8 +30,8 @@ nav {
 }
 
 .nav__left img {
-  width: 2rem;
-  height: 2rem;
+  width: 2em;
+  height: 2em;
 }
 
 .nav__link a {
@@ -40,14 +40,14 @@ nav {
 }
 
 nav h1 {
-  font-size: 1.65rem;
-  margin-left: 0.45rem;
+  font-size: 1.33em;
+  margin-left: 0.45em;
 }
 
 .nav__link {
-  font-size: 0.945rem;
+  font-size: 0.945em;
   display: inline-block;
-  margin-left: 1.75rem;
+  margin-left: 1.75em;
   position: relative;
 }
 
@@ -57,7 +57,7 @@ nav h1 {
   width: 100%;
   bottom: -9%;
   left: 0;
-  height: 0.11rem;
+  height: 0.11em;
   background: var(--secondary-color2);
   transform: scale(0);
   transition: ease 225ms;
@@ -81,10 +81,10 @@ nav h1 {
 .burger::before {
   content: '';
   position: absolute;
-  width: 2.1rem;
-  height: 0.13rem;
+  width: 2.1em;
+  height: 0.13em;
   background: #fff;
-  margin-top: 0.25rem;
+  margin-top: 0.25em;
   right: 0;
   transition: ease 300ms;
 }
@@ -92,11 +92,11 @@ nav h1 {
 .burger::after {
   content: '';
   position: absolute;
-  width: 1.42rem;
-  height: 0.13rem;
+  width: 1.42em;
+  height: 0.13em;
   background: #fff;
   right: 0;
-  margin-top: -0.25rem;
+  margin-top: -0.25em;
   transition: ease 300ms;
 }
 
@@ -104,8 +104,8 @@ nav h1 {
 .burger_open::before {
   content: '';
   position: absolute;
-  width: 1.3rem;
-  height: 0.13rem;
+  width: 1.3em;
+  height: 0.13em;
   background: #fff;
   margin-top: initial;
   right: 0;
@@ -115,8 +115,8 @@ nav h1 {
 .burger_open::after {
   content: '';
   position: absolute;
-  width: 1.3rem;
-  height: 0.13rem;
+  width: 1.3em;
+  height: 0.13em;
   background: #fff;
   right: 0;
   margin-top: initial;
@@ -141,15 +141,15 @@ nav h1 {
 }
 
 .menu h3 {
-  font-size: 1.6rem;
+  font-size: 1.6em;
   margin-top: 10%;
   color: #353535;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 
 .menu li {
-  font-size: 1.08rem;
-  margin-top: 0.58rem;
+  font-size: 1.08em;
+  margin-top: 0.58em;
   position: relative;
   list-style-type: none;
 }
@@ -177,20 +177,20 @@ nav h1 {
 }
 
 .nav__socials svg {
-  margin-right: 0.8rem;
+  margin-right: 0.8em;
 }
 
 .nav__subtitle {
-  font-size: 0.7rem;
+  font-size: 0.6em;
   color: #c9c9c9;
-  margin-top: -0.36rem;
+  margin-top: -0.36em;
   font-weight: 500;
 }
 
 .nav__subtitle2 {
-  font-size: 0.78rem;
+  font-size: 0.4em;
   color: #333333;
-  margin-top: -0.3rem;
+  margin-top: -0.3em;
   display: inline-block;
   font-weight: 500;
 }
@@ -223,8 +223,8 @@ nav h1 {
   }
 
   .nav__left img {
-    width: 2rem;
-    height: 2rem;
+    width: 2em;
+    height: 2em;
   }
 
   .nav__link a {
@@ -233,8 +233,8 @@ nav h1 {
   }
 
   nav h1 {
-    font-size: 1.63rem;
-    margin-left: 0.66rem;
+    font-size: 1.3em;
+    margin-left: 0.66em;
   }
 
   .nav__links {
@@ -242,9 +242,9 @@ nav h1 {
   }
 
   .nav__link {
-    font-size: 0.945rem;
+    font-size: 0.945em;
     display: inline-block;
-    margin-left: 1.75rem;
+    margin-left: 1.75em;
     position: relative;
   }
 
@@ -254,7 +254,7 @@ nav h1 {
     width: 100%;
     bottom: -9%;
     left: 0;
-    height: 0.11rem;
+    height: 0.11em;
     background: var(--secondary-color2);
     transform: scale(0);
     transition: ease 225ms;
@@ -281,12 +281,12 @@ nav h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 10rem;
+    width: 10em;
     border-radius: 3px;
-    height: 7rem;
+    height: 7em;
     background: #fff;
     position: absolute;
-    margin-top: 1.4rem;
+    margin-top: 1.4em;
     left: -22.5%;
     transform: scale(0);
     transition: 250ms;
@@ -302,11 +302,11 @@ nav h1 {
     position: absolute;
     width: 0;
     height: 0;
-    border-left: 0.7rem solid transparent;
-    border-right: 0.7rem solid transparent;
-    border-bottom: 0.7rem solid #fff;
+    border-left: 0.7em solid transparent;
+    border-right: 0.7em solid transparent;
+    border-bottom: 0.7em solid #fff;
     left: 50%;
-    top: -0.6rem;
+    top: -0.6em;
     transform: translateX(-50%);
   }
 
@@ -345,9 +345,9 @@ nav h1 {
   }
 
   .nav__subtitle_d {
-    font-size: 0.7rem;
+    font-size: 0.5em;
     color: #c7c7c7;
-    margin-top: -0.2rem;
+    margin-top: -0.2em;
     font-weight: 300;
   }
 }

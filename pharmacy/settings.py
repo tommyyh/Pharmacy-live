@@ -1,8 +1,12 @@
 import os
 import json
 
-with open ('/etc/secret.json') as config_file:
-    conf = json.load(config_file)
+try:
+    with open ('/etc/secret.json') as config_file:
+        conf = json.load(config_file)
+except:
+    with open ('./etc/secret.json') as config_file:
+        conf = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,6 +38,7 @@ INSTALLED_APPS = [
     'booking',
     'contact',
     'about',
+    'admin2',
     'rest_framework',
     'mailer',
     'django_crontab',
