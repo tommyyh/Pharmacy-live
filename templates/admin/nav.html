@@ -16,6 +16,9 @@
 
   <ul class="nav__links">
     <li class="nav__link"><a href="{% url 'home-home' %}">Visit Site</a></li>
+    <li class="nav__link">
+      <a href="{% url 'home-today-workplace' %}">Today Public</a>
+    </li>
     <li class="nav__link"><a href="/admin/">Visit Admin 1</a></li>
   </ul>
 
@@ -29,10 +32,9 @@
       </h3>
 
       <ul>
-        <li><a href="{% url 'home-home' %}">Home</a></li>
-        <li><a href="{% url 'about-about' %}">About</a></li>
-        <li><a href="{% url 'home-gallery' %}">Gallery</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'home-home' %}">Visit Site</a></li>
+        <li><a href="{% url 'home-today-workplace' %}">Today Public</a></li>
+        <li><a href="/admin/">Visit Admin 1</a></li>
       </ul>
     </span>
 

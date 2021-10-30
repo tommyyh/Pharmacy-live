@@ -1,4 +1,9 @@
+// Append CSRF token on every request
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
 const date = new Date();
+const year = date.getFullYear();
 
 const renderCalendar = () => {
   date.setDate(1);
@@ -51,9 +56,12 @@ const renderCalendar = () => {
       x === new Date().getDate() &&
       date.getMonth() === new Date().getMonth()
     ) {
-      days += `<div class="today">${x}</div>`;
+      days += `<div class="available_day hrefday">${x}</div>`;
+      // days += `<a href="/admin2/day/${year}-${
+      //   date.getMonth() + 1
+      // }-${x}/" class="available_day hrefday">${x}</a>`;
     } else {
-      days += `<div>${x}</div>`;
+      days += `<div class="available_day">${x}</div>`;
     }
   }
 
@@ -61,6 +69,20 @@ const renderCalendar = () => {
     days += `<div class="next_date">${j}</div>`;
     monthDays.innerHTML = days;
   }
+
+  const group = document.querySelector('.filter_group');
+  const place = document.querySelector('.filter_place');
+
+  // On click event
+  document.querySelectorAll('.available_day').forEach((day) => {
+    day.addEventListener('click', async (e) => {
+      url = `/admin2/day/${year}-${date.getMonth() + 1}-${e.target.innerHTML}/${
+        group.value
+      }/${place.value}`;
+
+      window.location.href = url;
+    });
+  });
 };
 
 document.querySelector('.prev').addEventListener('click', () => {
