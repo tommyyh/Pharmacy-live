@@ -28,25 +28,26 @@ td {
   background: #417690;
   color: #fff;
   cursor: pointer;
-  padding: 1rem 1.8rem;
+  padding: 1rem 1.6rem;
   margin-right: 1rem;
   margin-bottom: 2rem;
   border: none;
 }
 
+.filter_sort {
+  padding: 1rem 1rem;
+}
+
 @media all and (max-width: 414px) {
   .places {
     overflow-x: scroll;
-    width: 100%;
     width: 100vw;
-    position: absolute;
     background: #2b2b31;
   }
 
   table {
     table-layout: auto;
     border-collapse: collapse;
-    width: 100%;
     margin-top: 3rem;
   }
 
@@ -63,10 +64,6 @@ td {
     font-weight: 100;
   }
 
-  .filters {
-    margin-top: 65vh;
-  }
-
   .filter {
     background: #417690;
     color: #fff;
@@ -77,8 +74,18 @@ td {
   }
 }
 
-@media all and (min-width: 415px) and (max-width: 768px) {
+@media all and (max-width: 768px) {
   .filters {
-    margin-top: 60vh;
+    margin-top: 5rem;
+  }
+
+  .schedule {
+    overflow-x: hidden;
+    width: 97vw;
+    margin-left: 3%;
+  }
+
+  .schedule_inner {
+    overflow-x: scroll;
   }
 }

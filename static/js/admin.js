@@ -72,13 +72,14 @@ const renderCalendar = () => {
 
   const group = document.querySelector('.filter_group');
   const place = document.querySelector('.filter_place');
+  const sort = document.querySelector('.filter_sort');
 
   // On click event
   document.querySelectorAll('.available_day').forEach((day) => {
     day.addEventListener('click', async (e) => {
       url = `/admin2/day/${year}-${date.getMonth() + 1}-${e.target.innerHTML}/${
         group.value
-      }/${place.value}`;
+      }/${place.value}/${sort.value}`;
 
       window.location.href = url;
     });

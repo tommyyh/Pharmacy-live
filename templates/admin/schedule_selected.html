@@ -1,39 +1,50 @@
-<div class="filters">
-  <select name="group" class="filter filter_group">
-    <option value="workplace">Workplace</option>
-    <option value="public">Public</option>
-  </select>
+<div class="schedule_inner">
+  <div class="filters">
+    <select name="sort" class="filter filter_sort">
+      <option value="time-chron">Time (Chronological)</option>
+      <option value="time-chron-r">Time (Chron. Reversed)</option>
+      <option value="name">Alphabetical (Name)</option>
+      <option value="name-r">Alphabet. Reversed (Name)</option>
+      <option value="youngest">From Youngest</option>
+      <option value="oldest">From Oldest</option>
+    </select>
 
-  <select name="place" class="filter filter_place">
-    <option value="rimmington-pharmacy">Rimmington Pharmacy</option>
-    <option value="the-courtyard">The Courtyard</option>
-    <option value="centre4">Centre4</option>
-    <option value="market-weighton">Market Weighton</option>
-    <option value="st-matthews-church">St Matthews Church</option>
-  </select>
+    <select name="group" class="filter filter_group">
+      <option value="public">Public</option>
+      <option value="workplace">Workplace</option>
+    </select>
+
+    <select name="place" class="filter filter_place">
+      <option value="rimmington-pharmacy">Rimmington Pharmacy</option>
+      <option value="the-courtyard">The Courtyard</option>
+      <option value="centre4">Centre4</option>
+      <option value="market-weighton">Market Weighton</option>
+      <option value="st-matthews-church">St Matthews Church</option>
+    </select>
+  </div>
+
+  <table class="places">
+    <tr>
+      <th>Time</th>
+      <th>Name</th>
+      <th>Birth</th>
+      <th>Postal Code</th>
+    </tr>
+
+    {% if not public %}
+    <tr>
+      <td>No Records</td>
+      <td>No Records</td>
+      <td>No Records</td>
+      <td>No Records</td>
+    </tr>
+    {% else %} {% for x in public %}
+    <tr>
+      <td>{{ x.time }}</td>
+      <td>{{ x.name }}</td>
+      <td>{{ x.birth_date }}</td>
+      <td>{{ x.postal_code }}</td>
+    </tr>
+    {% endfor %} {% endif %}
+  </table>
 </div>
-
-<table class="places">
-  <tr>
-    <th>Time</th>
-    <th>Name</th>
-    <th>Birth</th>
-    <th>Postal Code</th>
-  </tr>
-
-  {% if not public %}
-  <tr>
-    <td>No Records</td>
-    <td>No Records</td>
-    <td>No Records</td>
-    <td>No Records</td>
-  </tr>
-  {% else %} {% for x in public %}
-  <tr>
-    <td>{{ x.time }}</td>
-    <td>{{ x.name }}</td>
-    <td>{{ x.birth_date }}</td>
-    <td>{{ x.postal_code }}</td>
-  </tr>
-  {% endfor %} {% endif %}
-</table>

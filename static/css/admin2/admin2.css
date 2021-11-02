@@ -133,6 +133,8 @@ html {
   }
 
   .calendar {
+    position: initial;
+
     margin-top: 1rem;
   }
 }
@@ -142,7 +144,33 @@ html {
     font-size: 10px;
   }
 
+  .cont {
+    display: initial;
+    justify-content: initial;
+    margin-top: 11rem;
+  }
+
   .calendar {
-    margin-top: 3vh;
+    position: initial;
+    margin-top: 15rem;
+    margin-left: 3%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  html {
+    font-size: 7px;
+  }
+
+  .cont {
+    display: initial;
+    justify-content: initial;
+    margin-top: 11rem;
+  }
+
+  .calendar {
+    position: initial;
+    margin-top: 15rem;
+    margin-left: 3%;
   }
 }
